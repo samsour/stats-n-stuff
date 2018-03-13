@@ -2,14 +2,17 @@ import $ from 'jquery';
 
 export default class Clock {
 
+
 	get clockClass() { return this._clockClass }
 	set clockClass(className) { this._clockClass = className }
 
 	get interval() { return this._interval }
 
+
 	constructor(clockClass) {
 		this._clockClass = clockClass;
 	}
+
 
 	startTimer() {
 
@@ -24,6 +27,7 @@ export default class Clock {
 		}, 1000);
 	}
 
+	
 	// add zero in front of numbers < 10
 	checkTime(i) {
 		if (i < 10) {i = "0" + i};  
