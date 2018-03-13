@@ -1,19 +1,10 @@
+import $ from 'jquery';
 import babelpolyfill from 'babel-polyfill';
 import Limousine from './Limousine';
 import Clock from './Clock';
-import $ from 'jquery';
 
-$( document ).ready(function() {
-    console.log( "ready!" );
+$(document).ready(function() {
+    let clock = new Clock('.clock');
+    clock.startTimer();
 })
-
-class Car {
-    constructor() {
-        console.log("NEW CAR! YEAH!");
-    }
-}
-
-
-const car = new Car();
-const limo = new Limousine();
 
