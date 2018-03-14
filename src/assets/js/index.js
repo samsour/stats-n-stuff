@@ -10,7 +10,7 @@ $(document).ready(function() {
     let clock = new Clock('.clock');
     clock.startTimer();
 
-    
+    // weather api call
     $.ajax({
         url: 'https://api.apixu.com/v1/current.json?key=2c8bf56be4704deeb4b102456181403&q=Frankfurt&lang=de',
         dataType: 'json',
@@ -41,6 +41,15 @@ $(document).ready(function() {
             }
         }
     });
+
+    // rmv api call
+    $.ajax({
+        url: 'https://www.rmv.de/hapi/location.name?accessId=a0d5a70b-d413-4863-a0b9-67ddfef252d6&input=frankfurt%20hauptbahnhof',
+        dataType: 'json',
+        success: function(data) {
+            console.log(data);
+        }
+    })
 })
 
 /*

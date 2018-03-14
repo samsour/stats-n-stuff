@@ -1,10 +1,10 @@
 // variables
 $color-transparent-dark: rgba(0,0,0,0.7);
 $color-transparent-light: rgba(200,200,200,0.8);
+$color-white: #dfdfff;
 $color-background: #18191b;
 
 $font-standard: 'Roboto', sans-serif;
-
 
 body {
     margin: 0;
@@ -24,7 +24,6 @@ body {
     height: 100%;
     background: linear-gradient(to bottom right, $color-transparent-dark, rgba(0,0,0,0.1));
     background: linear-gradient(to bottom right, rgba(70, 10, 10, 1), rgb(42, 42, 64));
-
     
     .top-left {
         position: absolute;
@@ -35,6 +34,8 @@ body {
     .top-center {
         position: absolute;
         left: 50%;
+        width: 70%;
+        margin-left: 100px;
         transform: translateX(-50%);
         animation: 2s ease-in-out fadeDown;
     }
@@ -65,9 +66,20 @@ body {
 }
 
 .clock {
-    color: #fff;
-    font-size: 200px;
     animation: 2.5s ease fadeDown;
+
+    .small {
+        font-size: 90px;
+        color: $color-transparent-light;
+    }
+    .smaller {
+        font-size: 50px;
+        color: $color-transparent-light;
+    }
+    .larger {
+        color: $color-white;
+        font-size: 200px;
+    }
 }
 
 .salutation {
