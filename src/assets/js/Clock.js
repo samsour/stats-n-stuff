@@ -23,11 +23,11 @@ export default class Clock {
 			let m = today.getMinutes();
 			let s = today.getSeconds();
 
-			$(this._clockClass).html(h + ":" + this.checkTime(m) + ":" + this.checkTime(s));
+			$(this._clockClass).html(h + ":" + this.checkTime(m) );
 		}, 1000);
 	}
 
-	
+
 	// add zero in front of numbers < 10
 	checkTime(i) {
 		if (i < 10) {i = "0" + i};  
