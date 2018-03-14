@@ -3,11 +3,27 @@ import babelpolyfill from 'babel-polyfill';
 import Clock from './Clock';
 import User from './User';
 
+let currentWeatherObj = null;
 
 $(document).ready(function() {
 
     let clock = new Clock('.clock');
     clock.startTimer();
+
+    
+    $.ajax({
+        url: 'https://api.apixu.com/v1/current.json?key=2c8bf56be4704deeb4b102456181403&q=Frankfurt&lang=de',
+        dataType: 'json',
+        success: function(data) {
+            console.log(data);
+
+            $('.weather-icon').html('<img src="' + data.current.condition.icon + '">');
+            // $('.weather-status').html(data.current.condition.text);
+            $('.weather-temperature').html('Es ist ' + data.current.condition.text + ' mit ' + data.current.temp_c + '°C, fühlt sicher aber an wie ' + data.current.feelslike_c + '°C');
+            
+        }
+    });
+
 
 })
 
