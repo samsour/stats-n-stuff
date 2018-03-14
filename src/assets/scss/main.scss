@@ -3,32 +3,40 @@ $color-transparent-dark: rgba(0,0,0,0.7);
 $color-transparent-light: rgba(200,200,200,0.8);
 $color-background: #18191b;
 
+$font-standard: 'Roboto', sans-serif;
+
 
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Cormorant Garamond', serif;
-    background: url('../img/background.jpeg');
+    font-family: $font-standard;
+    //background: url('../img/background.jpeg');
+    background: linear-gradient(to bottom right, rgba(195, 49, 199, 0.7), rgb(42, 42, 64));
     background-size: cover;
     color: $color-transparent-dark;
 }
 
 .main {
     display: block;
-    position: relative;
+    position: absolute;
     width: 100%;
-    height: 804px;
+    height: 100%;
     background: linear-gradient(to bottom right, $color-transparent-dark, rgba(0,0,0,0.1));
+    background: linear-gradient(to bottom right, rgba(70, 10, 10, 1), rgb(42, 42, 64));
+
+    
     .top-left {
         position: absolute;
         top: 0;
         left: 0;
+        animation: 2s ease-in-out fadeRight;
     }
     .top-center {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
+        animation: 2s ease-in-out fadeDown;
     }
     .top-right {
         position: absolute;
@@ -59,14 +67,14 @@ body {
 .clock {
     color: #fff;
     font-size: 200px;
-    animation: 3s ease opacity;
+    animation: 2.5s ease fadeDown;
 }
 
 .salutation {
     margin-top: 20px;
     color: $color-transparent-light;
     font-size: 32px;
-    animation: 1.5s ease opacity;
+    animation: 2s ease-in-out opacity;
 }
 
 .text-shadow {
@@ -77,4 +85,23 @@ body {
     0% {opacity: 0;}
     75% {opacity: 0;}
     100% {opacity: 1;}
+}
+
+@keyframes fadeDown {
+    0% {
+        margin-bottom: 200px;
+        opacity: 0;
+    }
+    50% {opacity: 0;}
+    100% {
+        margin-bottom: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeRight {
+    0% {left: -10%;
+        opacity: 0;}
+    100%{left: 0;
+        opacity: 1;}
 }

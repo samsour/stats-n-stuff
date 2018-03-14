@@ -12,7 +12,7 @@ $(document).ready(function() {
 
     
     $.ajax({
-        url: 'https://api.apixu.com/v1/current.json?key=2c8bf56be4704deeb4b102456181403&q=Paris&lang=de',
+        url: 'https://api.apixu.com/v1/current.json?key=2c8bf56be4704deeb4b102456181403&q=Frankfurt&lang=de',
         dataType: 'json',
         success: function(data) {
             console.log(data);
