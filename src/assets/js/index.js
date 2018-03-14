@@ -12,19 +12,35 @@ $(document).ready(function() {
 
     
     $.ajax({
-        url: 'https://api.apixu.com/v1/current.json?key=2c8bf56be4704deeb4b102456181403&q=Frankfurt&lang=de',
+        url: 'https://api.apixu.com/v1/current.json?key=2c8bf56be4704deeb4b102456181403&q=Paris&lang=de',
         dataType: 'json',
         success: function(data) {
             console.log(data);
 
             $('.weather-icon').html('<img src="' + data.current.condition.icon + '">');
             // $('.weather-status').html(data.current.condition.text);
-            $('.weather-temperature').html('Es ist ' + data.current.condition.text + ' mit ' + data.current.temp_c + '°C, fühlt sicher aber an wie ' + data.current.feelslike_c + '°C');
+            let currentTemp = data.current.temp_c;
+            let currentFeelslike = data.current.feelslike_c;
+            $('.weather-temperature').html(
+                'In '
+                + data.location.name
+                + ' ist es ' 
+                + data.current.condition.text 
+                + ' mit ' + data.current.temp_c 
+                + '°C. Es fühlt sich ' 
+                + checkPhrase(currentTemp, currentFeelslike) 
+                + ' an wie ' + data.current.feelslike_c + '°C'
+            );
             
+            function checkPhrase(temp1, temp2) {
+                if(temp1 == temp2) {
+                    return 'auch';
+                } else {
+                    return 'aber';
+                }
+            }
         }
     });
-
-
 })
 
 /*
