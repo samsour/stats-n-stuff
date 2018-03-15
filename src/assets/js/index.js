@@ -9,16 +9,29 @@ import User from './User';
 let currentWeatherObj = null;
 
 $(document).ready(function() {
-
+    let weather = new Weather();
+    let coins = new Coins();
+    let rmv = new Rmv();
     let clock = new Clock('.clock');
     clock.startTimer();
     
-    let weather = new Weather();
-
-    let coins = new Coins();
-
-    let rmv = new Rmv();
+    greeting();
 })
+
+function greeting() {
+    let today = new Date();
+    let h = today.getHours();
+    
+    if(h >= 12 && h < 17) {
+        $('.time-period').html("Guten Mittag");
+    } else if(h >= 17 && h < 23) {
+        $('.time-period').html("Guten Abend");
+    } else if(h >= 23 && h < 5) {
+        $('.time-period').html("Gute Nacht");
+    } else {
+        $('.time-period').html("Guten Morgen");
+    }
+}
 
 // function setBackground() {
 
