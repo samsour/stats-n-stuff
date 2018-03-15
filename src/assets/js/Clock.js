@@ -39,20 +39,10 @@ export default class Clock {
 		let date = today.getDate();
 		let month = today.getMonth();
 
-		$(this._clockClass).html(
-			'<span class="smaller">'
-			+ weekday[today.getDay()]
-			+ '</span>'
-			+ '<span class="small">'
-			+ this.checkNumber(date) + '.' + this.checkNumber(parseInt(month+1))
-			+ '</span>'
-			+ '<span class="larger">'
-			+ h + ':' + this.checkNumber(m)
-			+ '</span>'
-			+ '<span class="small">'
-			+ this.checkNumber(s)
-			+ '</span>'
-		);
+		$(this._clockClass + ' .day').html(weekday[today.getDay()]);
+		$(this._clockClass + ' .date').html(this.checkNumber(date) + '.' + this.checkNumber(parseInt(month+1)));
+		$(this._clockClass + ' .time').html(h + ':' + this.checkNumber(m));
+		$(this._clockClass + ' .seconds').html(this.checkNumber(s));
 	}
 
 	// add zero in front of numbers < 10
