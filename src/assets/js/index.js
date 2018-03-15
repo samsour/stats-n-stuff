@@ -2,6 +2,8 @@ import $ from 'jquery';
 import babelpolyfill from 'babel-polyfill';
 import Clock from './Clock';
 import Weather from './Weather';
+import Coins from './Coins';
+import Rmv from './Rmv';
 import User from './User';
 
 let currentWeatherObj = null;
@@ -11,8 +13,11 @@ $(document).ready(function() {
     let clock = new Clock('.clock');
     clock.startTimer();
     
-
     let weather = new Weather();
+
+    let coins = new Coins();
+
+    let rmv = new Rmv();
 })
 
 // function setBackground() {
@@ -33,19 +38,6 @@ $(document).ready(function() {
 //             $('body').addClass('neutral');
 //             break;
 //     }
-// }
-
-
-
-// function rmvApi() {
-//     // rmv api call
-//     $.ajax({
-//         url: 'https://www.rmv.de/hapi/location.name?accessId=a0d5a70b-d413-4863-a0b9-67ddfef252d6&input=frankfurt%20hauptbahnhof',
-//         dataType: 'json',
-//         success: function(data) {
-//             console.log(data);
-//         }
-//     })
 // }
 
 /*
