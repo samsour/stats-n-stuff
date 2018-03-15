@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ES6 Setup</title>
-    <script type="text/javascript" src="./assets/js/index.js"></script>
+    <title>Stats'n'Stuff</title>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <link rel="stylesheet" href="./assets/css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet"></head>
 <body>
     <div class="main">
+        <div class="slim-shady"></div>
         <div class="top-left">
-            <div class="weather">
-                <div class="weather-icon"></div>
-            </div>
+            
         </div>
         <div class="top-center">
-            <div class="weather">
-                <div class="weather-status"></div>
-                <div class="weather-temperature"></div>
-            </div>
+            
         </div>
         <div class="top-right">
         </div>
         <div class="center">
-            <div class="clock text-shadow">
-                <!-- <span class="smaller" id="date"></span>
-                <span class="larger" id="time"></span>
-                <span class="smaller" id="seconds"></span> -->
+                <div class="clock text-shadow">
+                    <span id="day" class="smaller">Do</span>
+                    <span id="date" class="small">15.03</span>
+                    <span id="time" class="larger">13:27</span>
+                    <span id="seconds" class="small">49</span>
+                </div>
+            <div class="salutation text-shadow">Guten Mittag, <span class="username">Sam</span>!<br>
+            Die Straßen sind trocken.</div>
+        </div>
+        <div class="bottom-center">
+            <div class="weather">
+                <div class="weather-icon"></div>
+                <div class="weather-status"></div>
+                <div class="weather-temperature"></div>
             </div>
-            <div class="salutation text-shadow">Hallo <span class="username"></span>!</div>
         </div>
     </div>
+    <script type="text/javascript" src="./assets/js/index.js"></script>
 </body>
 </html>
