@@ -67,7 +67,7 @@ export default class Coin {
 
         $('.coins').append('<div class="coin-item ' 
         + coin.toLowerCase()
-        + '"><div class="left"><div class="coin-name"></div><div class="coin-price"></div><div class="last-updated"></div></div><div class="right"><div class="percent-change-1h"></div><div class="percent-change-24h"></div><div class="percent-change-7d"></div></div></div>')
+        + '"><div class="coin-item-data"><div class="coin-name"></div><div class="coin-price"></div><div class="last-updated"></div></div><div class="coin-item-data"><div class="percent-change-1h"></div><div class="percent-change-24h"></div><div class="percent-change-7d"></div></div></div>')
     }
 
     checkNumber(i) {
