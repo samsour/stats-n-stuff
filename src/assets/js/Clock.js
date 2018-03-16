@@ -8,7 +8,6 @@ export default class Clock {
 
 	get interval() { return this._interval }
 
-
 	constructor(clockClass) {
 		this._clockClass = clockClass;
 		this.checkDate();

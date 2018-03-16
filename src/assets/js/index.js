@@ -9,9 +9,16 @@ import User from './User';
 let currentWeatherObj = null;
 
 $(document).ready(function() {
+
     let weather = new Weather();
+
     let iota = new Coin('https://api.coinmarketcap.com/v1/ticker/iota/?convert=EUR');
+    let bitcoin = new Coin('https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=EUR');
+    let litecoin = new Coin('https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=EUR');
+    let eth = new Coin('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=EUR');
+
     let rmv = new Rmv();
+    
     let clock = new Clock('.clock');
     clock.startTimer();
     
