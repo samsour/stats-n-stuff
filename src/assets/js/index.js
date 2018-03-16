@@ -2,7 +2,7 @@ import $ from 'jquery';
 import babelpolyfill from 'babel-polyfill';
 import Clock from './Clock';
 import Weather from './Weather';
-import Coins from './Coins';
+import Coin from './Coin';
 import Rmv from './Rmv';
 import User from './User';
 
@@ -10,7 +10,7 @@ let currentWeatherObj = null;
 
 $(document).ready(function() {
     let weather = new Weather();
-    let coins = new Coins();
+    let iota = new Coin('https://api.coinmarketcap.com/v1/ticker/iota/?convert=EUR');
     let rmv = new Rmv();
     let clock = new Clock('.clock');
     clock.startTimer();
