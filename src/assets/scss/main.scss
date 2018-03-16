@@ -45,25 +45,28 @@ body {
         background: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
     }
 
-    .top-left {
-        position: absolute;
-        top: 0;
-        left: 0;
-        animation: 2s ease-in-out fadeRight;
+    .top {
+        &-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            animation: 2s ease-in-out fadeRight;
+        }
+        &-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: 2s ease-in-out fadeDown;
+            text-align: center;
+        }
+        &-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 20px;
+        }
     }
-    .top-center {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        animation: 2s ease-in-out fadeDown;
-        text-align: center;
-    }
-    .top-right {
-        position: absolute;
-        top: 0;
-        right: 0;
-    }
-
     .center {
         display: block;
         position: relative;
@@ -80,21 +83,26 @@ body {
         left: 50%;
         transform: translateX(-50%);
         width: 100%;
+        padding: 20px;
         animation: bottomMoveUp ease-in-out 2s;
     }
 }
 
+.coin {
+    color: $color-transparent-light;
+    font-size: 16px;
+}
+
 .weather {
     width: 100%;
-    padding: 20px;
     font-size: 20px;
     text-align: center;
     color: $color-transparent-light;
     animation: 4s opacity ease;
-}
 
-.weather-icon {
-    opacity: 0.9;
+    &-icon {
+        opacity: 0.9;
+    }
 }
 
 .clock {
@@ -122,6 +130,10 @@ body {
 
 .text-shadow {
     text-shadow: 0 0 60px #000;
+}
+
+.transparent-background {
+    background: rgba(0,0,0,0.2);
 }
 
 // CSSAnimations
