@@ -23,15 +23,14 @@ export default class Weather {
                 let conditionCode = data.current.condition.code;
 
                 $('.weather-temperature').html(
-                    'In '
-                    + location
-                    + ' sind es ' 
-                    + temperature 
-                    + '°C und '
+                    location
+                    + ' // ' 
                     + conditionText 
-                    + '. Es fühlt sich ' 
+                    + ' // '
+                    + temperature 
+                    + ' °C '
                     + checkPhrase(temperature, feelsLike) 
-                    + ' an wie ' + data.current.feelslike_c + '°C.'
+                    + ' gefühlte ' + data.current.feelslike_c + '°C'
                 );
                 
                 function checkPhrase(temp1, temp2) {

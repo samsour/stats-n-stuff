@@ -4,9 +4,11 @@ $color-transparent-light: rgba(220,220,220,.8);
 $color-transparent-bright: rgba(250,250,250,0.85);
 $color-transparent-medium: rgba(255,255,255,.5);
 
+$background-transparent-dark: rgba(0,0,0,0.2);
+$background-dark: #18191b;
+
 $color-white: #fff;
 $color-black: #000;
-$color-background: #18191b;
 
 $slim-shady-from: rgba(0, 0, 0, 0.1);
 $slim-shady-to: rgba(0, 0, 0, 0.5);
@@ -27,21 +29,26 @@ $font-standard: 'Roboto', sans-serif;
 }
 
 body {
-    overflow: hidden;
     font-family: $font-standard;
     color: $color-transparent-dark;
-    background: $color-transparent-dark;
+    background: $color-black;
 }
 
 .main {
     display: block;
-    position: absolute;
     width: 100%;
     height: 100%;
+    min-height: 100vh;
+    position: relative;
+    z-index: -2;
     // background: linear-gradient(to bottom right, rgba(70, 10, 10, 1), rgb(42, 42, 64));
     background: url('../img/background3.jpeg') center no-repeat;
     background-size: cover;
     animation: 1s ease-in-out fadeIn;
+
+    @media only screen and (min-width: 600px) {
+        position: absolute;
+    }
 
     .slim-shady {
         position: absolute;
@@ -49,26 +56,24 @@ body {
         left: 0;
         width: 100%;
         height: 100%;
+        z-index: -1;
         background: linear-gradient($slim-shady-direction, $slim-shady-from, $slim-shady-to);
     }
 
     .top {
         &-left {
-            position: absolute;
             top: 0;
             left: 0;
             padding: 20px;
             animation: 2s ease-in-out fadeRight;
         }
         &-center {
-            position: absolute;
             left: 50%;
             transform: translateX(-50%);
             animation: 2s ease-in-out fadeDown;
             text-align: center;
         }
         &-right {
-            position: absolute;
             top: 0;
             right: 0;
             padding: 20px;
@@ -76,37 +81,51 @@ body {
     }
     .center {
         display: block;
-        position: relative;
-        top: 50%;
-        left: 50%;
         text-align: center;
-        transform: translate(-50%,-50%);
         animation: bottomMoveUp ease-in-out 2s;
+        
+        @media only screen and (min-width: 600px) {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
     }
 
     .bottom-center {
-        position: absolute;
+        position: relative;
         bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
         padding: 20px;
         animation: bottomMoveUp 2s ease-in-out, opacity 1s ease-in-out 1s;
+
+        @media only screen and (min-width: 600px) {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+        }
     }
 }
 
 .coins {
+    width: 100%;
+    background: $background-transparent-dark;
     color: $color-transparent-light;
-    font-size: 18px;
+    font-size: 16px;
 
-    .left {
-        padding: 10px;
-        float: left;
+    @media only screen and (min-width: 600px) {
+        position: absolute;
+        width: auto;
+        font-size: 18px;
     }
 
-    .right {
-        padding: 10px;
-        float: right;
+    .coin-item {
+        display: flex;
+
+        &-data {
+            padding: 20px;
+            flex-grow: 1;
+        }
     }
 
     .coin-price {
@@ -120,12 +139,16 @@ body {
 
 .weather {
     width: 100%;
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
     color: $color-transparent-light;
 
     &-icon {
         opacity: 0.9;
+    }
+
+    @media only screen and (min-width: 600px) {
+        font-size: 30px;
     }
 }
 
@@ -135,25 +158,46 @@ body {
     .clock-item {
         display: inline-block;
     }
-    .small {
-        font-size: 90px;
-        color: $color-transparent-light;
-    }
+
     .smaller {
-        font-size: 50px;
+        font-size: 20px;
         color: $color-transparent-light;
+
+        @media only screen and (min-width: 600px) {
+            font-size: 70px;
+        }
     }
+
+    .small {
+        font-size: 30px;
+        color: $color-transparent-light;
+
+        @media only screen and (min-width: 600px) {
+            font-size: 90px;
+        }
+    }
+
     .larger {
         color: $color-white;
-        font-size: 200px;
+        font-size: 120px;
+
+        @media only screen and (min-width: 600px) {
+            font-size: 200px;
+        }
     }
 }
 
 .start-text {
     margin-top: 20px;
+    padding: 0 20px;
     color: $color-transparent-light;
-    font-size: 32px;
+    font-size: 30px;
     animation: opacity 3s ease-in-out;
+
+    @media only screen and (min-width: 600px) {
+        font-size: 50px;
+    }
+    
 }
 
 // text-colors
@@ -170,12 +214,6 @@ body {
 
 .text-shadow {
     text-shadow: 0 0 60px #000;
-}
-
-// background
-
-.transparent-background {
-    background: rgba(0,0,0,0.2);
 }
 
 // CSSAnimations
