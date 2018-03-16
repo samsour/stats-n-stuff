@@ -3,7 +3,7 @@ import babelpolyfill from 'babel-polyfill';
 import Clock from './Clock';
 import Weather from './Weather';
 import Coin from './Coin';
-import Rmv from './Rmv';
+import Train from './Train';
 import User from './User';
 
 let currentWeatherObj = null;
@@ -14,11 +14,13 @@ $(document).ready(function() {
 
     let iota = new Coin('https://api.coinmarketcap.com/v1/ticker/iota/?convert=EUR');
     let bitcoin = new Coin('https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=EUR');
-    let litecoin = new Coin('https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=EUR');
+    let litecoin = new Coin('https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=EUR'); 
     let eth = new Coin('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=EUR');
+    let ste = new Coin('https://api.coinmarketcap.com/v1/ticker/stellar/?convert=EUR');
+    let teth = new Coin('https://api.coinmarketcap.com/v1/ticker/tether/?convert=EUR');
 
-    let rmv = new Rmv();
-    
+    let s1 = new Train();
+
     let clock = new Clock('.clock');
     clock.startTimer();
     
@@ -29,8 +31,10 @@ function greeting() {
     let today = new Date();
     let h = today.getHours();
     
-    if(h >= 12 && h < 17) {
+    if(h >= 12 && h < 13) {
         $('.time-period').html("Guten Mittag");
+    } else if(h >= 13 && h < 17) {
+        $('.time-period').html("Guten Nachmittag");
     } else if(h >= 17 && h < 23) {
         $('.time-period').html("Guten Abend");
     } else if(h >= 23 && h < 5) {
