@@ -40,17 +40,20 @@ function watchEvents() {
 }
 
 function addNewCoin() {
+    if($('#coinId').val() != '' ) {
+        const newCoin = $('#coinId').val();
+        const newCoinObject = new Coin('https://api.coinmarketcap.com/v1/ticker/' + newCoin + '/?convert=EUR');
 
-    const newCoin = $('#coinId').val();
-    const newCoinObject = new Coin('https://api.coinmarketcap.com/v1/ticker/' + newCoin + '/?convert=EUR');
-
-    if(coinCounter < 6) {    
-        coinCounter++;
+        if(coinCounter < 6) {    
+            coinCounter++;
+        } else {
+            $('.new-coin').toggle();
+            $('.coin-wrapper').append('<div class="error-msg">Maximale Anzahl an Coins erreicht.</div>');
+        }
+        $('.input-coin-name').val('');
     } else {
-        $('.new-coin').toggle();
-        $('.coin-wrapper').append('<div class="error-msg">Maximale Anzahl an Coins erreicht.</div>');
+        $('.coin-wrapper').append('<div class="error-msg">Eingabe erforderlich.</div>');
     }
-    $('.input-coin-name').val('');
 }
 
 function greeting() {

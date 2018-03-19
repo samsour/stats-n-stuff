@@ -141,7 +141,7 @@ body {
             display: flex;
 
             background: $background-transparent-dark;
-            animation: slideInRight 1.5s ease-in-out;
+            animation: slideInRight .5s ease-in-out;
 
             &-data {
                 padding: $padding-normal;
@@ -169,8 +169,12 @@ body {
             font-size: $font-size-medium;
         }
 
+        &:hover .input-coin-name {
+            width: calc(100% - 40px);
+        }
+
         .input-coin-name {
-            width: 90%;
+            width: 0%;
             border: 0;
             outline: 0;
             opacity: 1;
@@ -179,8 +183,12 @@ body {
             text-align: center;
             font-family: $font-standard;
             font-size: $font-size-normal;
-            padding: $padding-half;
+            padding: $padding-half 0;
             transition: .25s all ease-in-out;
+
+            &:focus {
+                width: calc(100% - 40px);
+            }
 
             &:hover, &:focus {
                 background: $background-transparent-bright;
@@ -188,7 +196,7 @@ body {
         }
         
         .new-coin-btn {
-            width: 10%;
+            width: 40px;
             padding: $padding-half;
             border: 0;
             outline: 0;
