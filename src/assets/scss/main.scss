@@ -10,9 +10,9 @@ $background-dark: #18191b;
 $color-white: #fff;
 $color-black: #000;
 
-$slim-shady-from: rgba(0, 0, 0, 0.1);
-$slim-shady-to: rgba(0, 0, 0, 0.5);
-$slim-shady-direction: to top right; //to top right
+$slim-shady-to: rgba(157, 196, 255, 0.2);
+$slim-shady-from: rgba(12, 16, 17, 0.356);
+$slim-shady-direction: to bottom; //to top right
 
 $font-standard: 'Roboto', sans-serif;
 
@@ -44,7 +44,7 @@ body {
     // background: linear-gradient(to bottom right, rgba(70, 10, 10, 1), rgb(42, 42, 64));
     background: url('../img/background3.jpeg') center no-repeat;
     background-size: cover;
-    animation: 1s ease-in-out fadeIn;
+    animation: opacity 2s ease-in-out;
 
     @media only screen and (min-width: 600px) {
         position: absolute;
@@ -96,7 +96,7 @@ body {
         position: relative;
         bottom: 0;
         padding: 20px;
-        animation: bottomMoveUp 2s ease-in-out, opacity 1s ease-in-out 1s;
+        animation: bottomMoveUp 1s ease-in-out, opacity 1.5s ease-in-out;
 
         @media only screen and (min-width: 600px) {
             position: absolute;
@@ -138,9 +138,10 @@ body {
 }
 
 .weather {
-    width: 100%;
+    padding: 20px;
     font-size: 18px;
     text-align: center;
+    background: $background-transparent-dark;
     color: $color-transparent-light;
 
     &-icon {
@@ -188,9 +189,8 @@ body {
 }
 
 .start-text {
-    margin-top: 20px;
-    padding: 0 20px;
-    color: $color-transparent-light;
+    padding: 20px;
+    color: $color-transparent-bright;
     font-size: 30px;
     animation: opacity 3s ease-in-out;
 
@@ -198,6 +198,9 @@ body {
         font-size: 50px;
     }
     
+    .salutation {
+        padding: 20px;
+    }
 }
 
 // text-colors
@@ -224,8 +227,8 @@ body {
 }
 
 @keyframes bottomMoveUp {
-    0% { bottom: -200px; }
-    100% { bottom: 0; }
+    0% { transform: translateY(-20%); }
+    100% { transform: translateY(0%); }
 }
 
 @keyframes fadeRight {
