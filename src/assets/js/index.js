@@ -7,25 +7,51 @@ import Train from './Train';
 import User from './User';
 
 let currentWeatherObj = null;
+let coinCounter = 1; // set to 0 if no coin initialized in constructor
 
 $(document).ready(function() {
+    watchEvents();
+    bindKeyEvents();
 
     let weather = new Weather();
 
-    let iota = new Coin('https://api.coinmarketcap.com/v1/ticker/iota/?convert=EUR');
-    let bitcoin = new Coin('https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=EUR');
-    let litecoin = new Coin('https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=EUR'); 
-    let eth = new Coin('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=EUR');
-    let ste = new Coin('https://api.coinmarketcap.com/v1/ticker/stellar/?convert=EUR');
-    let teth = new Coin('https://api.coinmarketcap.com/v1/ticker/tether/?convert=EUR');
+    const iota = new Coin('https://api.coinmarketcap.com/v1/ticker/iota/?convert=EUR'); // set coinCounter to 0
 
-    let s1 = new Train();
+    const s1 = new Train();
 
-    let clock = new Clock('.clock');
+    const clock = new Clock('.clock');
     clock.startTimer();
     
     greeting();
 })
+function bindKeyEvents() {
+    $('.input-coin-name').keyup(function(event) {
+        if (event.keyCode === 13) { //ENTER
+            addNewCoin();
+        }
+    });
+}
+
+
+function watchEvents() {
+    $('#new-coin-btn').click(function() {
+        addNewCoin();
+    });
+}
+
+function addNewCoin() {
+
+    const newCoin = $('#coinId').val();
+    const newCoinObject = new Coin('https://api.coinmarketcap.com/v1/ticker/' + newCoin + '/?convert=EUR');
+
+    if(coinCounter < 6) {    
+        coinCounter++;
+    } else {
+        $('.new-coin').toggle();
+        $('.coin-wrapper').append('<div class="error-msg">Maximale Anzahl an Coins erreicht.</div>');
+    }
+    $('.input-coin-name').val('');
+}
 
 function greeting() {
     let today = new Date();
