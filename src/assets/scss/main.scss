@@ -61,9 +61,14 @@ body {
             }
         }
         &-center {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+            padding: $padding-normal;
+
+            @media only screen and (min-width: 600px) {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }        
         }
         &-right {
             top: 0;
@@ -94,6 +99,29 @@ body {
             left: 50%;
             bottom: 0; // set to top if you want weather to be at the top lool
             transform: translateX(-50%);
+        }
+    }
+}
+
+.apps {
+    display: flex;
+    border-radius: 2px;
+    
+    background: $background-transparent-dark;
+    
+    .app-item {
+        padding: $padding-half;
+
+        img {
+            width: 40px;
+            filter: opacity(0.5);
+            transition: .2s all ease-in-out;
+
+            &:hover {
+                width: 50px;
+                filter: opacity(0.8);
+                // filter: invert(100%);
+            }
         }
     }
 }
@@ -209,7 +237,8 @@ body {
         
         .new-coin-btn {
             @include transparent-button($color-green, $background-transparent-dark);
-            
+            order: 2;
+
             &:hover {
                 & + .input-coin-name {
                     width: calc(50%);
