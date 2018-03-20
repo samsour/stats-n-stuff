@@ -1,5 +1,7 @@
 # Stats and Stuff
 
+![Screenshot](./src/assets/img/screenshots/laptop-mdpi-screen.png?raw=true "Stats and Stuff - Desktop")
+
 New-tab widget for fancy information and nice stats!
 
 It has a Gulp-powered build system with these features:
