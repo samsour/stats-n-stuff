@@ -13,7 +13,7 @@ $(document).ready(function() {
     watchEvents();
     bindKeyEvents();
 
-    let weather = new Weather('frankfurt');
+    let weather = new Weather('frankfurt', 'de');
 
     // const iota = new Coin('https://api.coinmarketcap.com/v1/ticker/iota/?convert=EUR'); // set coinCounter to 0
 
@@ -52,7 +52,7 @@ function watchEvents() {
 
 function addNewCoin() {
     if($('#coinId').val() != '' ) {
-        const newCoin = $('#coinId').val();
+        const newCoin = $('#coinNameInput').val();
         const newCoinObject = new Coin('https://api.coinmarketcap.com/v1/ticker/' + newCoin + '/?convert=EUR');
 
         if(coinCounter < 6) {    
