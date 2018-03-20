@@ -106,8 +106,8 @@ body {
 .apps {
     display: flex;
     border-radius: 2px;
-    
     background: $background-transparent-dark;
+    animation: slideInBottom 2s ease-out;
     
     .app-item {
         padding: $padding-half;
@@ -236,7 +236,7 @@ body {
         }
         
         .new-coin-btn {
-            @include transparent-button($color-green, $background-transparent-dark);
+            @include transparent-button($color-transparent-light, $background-transparent-dark);
             order: 2;
 
             &:hover {
