@@ -12,3 +12,21 @@
         background: $background-transparent-dark;
     }
 }
+
+@mixin input($type) {
+    width: 10%;
+    border: 0;
+    border-bottom: 2px solid $color-white;
+    outline: 0;
+    background: transparent;
+    font-family: $font-standard;
+    font-size: $font-size-large;
+    font-weight: lighter;
+    color: $color-white;
+    text-align: center;
+    transition: .5s width ease-in-out;
+
+    &:focus {
+        width: 50%;
+    }
+}
