@@ -1,0 +1,14 @@
+@mixin transparent-button($color, $background-color) {
+    width: 40px;
+    padding: $padding-half;
+    border: 0;
+    outline: 0;
+    background: $background-color;
+    color: $color;
+    font-family: $font-standard;
+    font-size: $font-size-normal;
+
+    &:hover {
+        background: $background-transparent-dark;
+    }
+}
