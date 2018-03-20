@@ -6,17 +6,15 @@ export default class Coin {
     set name(name) { this._name = name };
     
     get price() { return this._price };
-
     get percentChange1h() { return this._percentChange1h };
-
     get percentChange24h() { return this._percentChange24h};
-
     get percentChange7d() { return this._percentChange7d};
-
     get lastUpdated() { return this._lastUpdated};
+
     
 	constructor(url) {
         this.getData(url);
+        // this.coinCounter++;
     }
     
     getData(url) {
@@ -67,8 +65,31 @@ export default class Coin {
 
         $('.coins').append('<div class="coin-item ' 
         + coin.toLowerCase()
-        + '"><div class="coin-item-data"><div class="coin-name"></div><div class="coin-price"></div><div class="last-updated"></div></div><div class="coin-item-data"><div class="percent-change-1h"></div><div class="percent-change-24h"></div><div class="percent-change-7d"></div></div></div>')
+        + '"><div class="coin-item-data"><div class="coin-name"></div><div class="coin-price"></div><div class="last-updated"></div></div><div class="coin-item-data hidden"><div class="rate percent-change-1h"></div><div class="rate percent-change-24h"></div><div class="rate percent-change-7d"></div></div><div class="coin-item-close hidden"><button type="button" class="remove-coin" id="closeCoin-' + /*coin counter +*/ '">x</button></div></div>')
     }
+
+    /*
+                        <div class="coin-item iota">
+                            <div class="coin-item-data">
+                                <div class="coin-name">IOTA</div>
+                                <div class="coin-price">1.0539€</div>
+                                <div class="last-updated">10:24</div>
+                            </div>
+                            <div class="coin-item-data hidden">
+                                <div class="rate percent-change-1h">
+                                    <span class="red">-0.44%</span> (1H)
+                                </div>
+                                <div class="rate percent-change-24h">
+                                    <span class="green">6.25%</span> (24H)
+                                </div>
+                                <div class="rate percent-change-7d">
+                                <span class="red">-1.7%</span> (7D)
+                            </div>
+                        </div>
+                        <div class="coin-item-close hidden">
+                            <button type="button" class="remove-coin" id="closeCoin-">x</button>
+                        </div>
+                        */
 
     checkNumber(i) {
 		if (i < 10) {i = "0" + i};  

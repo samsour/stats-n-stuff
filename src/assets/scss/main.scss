@@ -56,7 +56,7 @@ body {
     overflow-x: hidden;
     position: relative;
     // background: linear-gradient(to bottom right, rgba(70, 10, 10, 1), rgb(42, 42, 64));
-    background: url('../img/background3.jpeg') center no-repeat;
+    background: url('../img/background4.jpeg') center no-repeat;
     background-size: cover;
     animation: opacity 1s ease-in-out;
     transition: 1s ease-in-out;
@@ -139,13 +139,61 @@ body {
 
         .coin-item {
             display: flex;
-
+            flex-direction: row;
+            width: 50%;
             background: $background-transparent-dark;
-            animation: slideInRight .5s ease-in-out;
+            transition: all .25s ease-in-out;
+            animation: slideInRight .25s ease-in-out;
+
+            &:hover {
+                width: calc(100% - 40px);
+
+                .coin-item-data.hidden {
+                    opacity: 1;
+                }
+            }
 
             &-data {
                 padding: $padding-normal;
                 flex-grow: 1;
+            
+                &.hidden {
+                    transition: .25s ease-in-out;
+                    opacity: 0;
+
+                    &:hover + .coin-item-close.hidden {
+                        opacity: 1;
+                    }
+                }
+
+                .rate {
+                    white-space: nowrap;
+                }
+            }
+
+            &-close {
+                &.hidden {
+                    transition: .25s ease-in-out;
+                    opacity: 0;
+                }
+                &:hover {
+                    opacity: 1;
+                }
+
+                .remove-coin {
+                    width: 40px;
+                    padding: $padding-half;
+                    border: 0;
+                    outline: 0;
+                    background: transparent;
+                    color: $color-red;
+                    font-family: $font-standard;
+                    font-size: $font-size-normal;
+
+                    &:hover {
+                        background: $background-transparent-dark;
+                    }
+                }
             }
         }
 
@@ -159,7 +207,7 @@ body {
     }
 
     .new-coin {
-        display: block;
+        display: flex;
         top: 0;
         color: $color-white;
         animation: opacity 2s ease-in-out;
@@ -169,11 +217,8 @@ body {
             font-size: $font-size-medium;
         }
 
-        &:hover .input-coin-name {
-            width: calc(100% - 40px);
-        }
-
         .input-coin-name {
+            order: 1;
             width: 0%;
             border: 0;
             outline: 0;
@@ -186,16 +231,18 @@ body {
             padding: $padding-half 0;
             transition: .25s all ease-in-out;
 
+            &:hover {
+                width: calc(50%);
+                background: $background-transparent-light;
+            }
             &:focus {
                 width: calc(100% - 40px);
-            }
-
-            &:hover, &:focus {
                 background: $background-transparent-bright;
             }
         }
         
         .new-coin-btn {
+            order: 2;
             width: 40px;
             padding: $padding-half;
             border: 0;
@@ -207,6 +254,10 @@ body {
             
             &:hover {
                 background: $background-transparent-light;
+
+                & + .input-coin-name {
+                    width: calc(50%);
+                }
             }
         }
     }
@@ -219,7 +270,7 @@ body {
     font-size: $font-size-medium;
     text-align: center;
     background: $background-transparent-dark;
-    color: $color-transparent-light;
+    color: $color-transparent-bright;
     animation: slideInLeft 2s ease-in-out;
 
     &-icon {
@@ -273,6 +324,24 @@ body {
         padding: $padding-normal;
         font-size: $font-size-large;
         font-weight: lighter;
+    }
+
+    .input-underline {
+        width: 10%;
+        border: 0;
+        border-bottom: 2px solid $color-white;
+        outline: 0;
+        background: transparent;
+        font-family: $font-standard;
+        font-size: $font-size-large;
+        font-weight: lighter;
+        color: $color-white;
+        text-align: center;
+        transition: .5s width ease-in-out;
+
+        &:focus {
+            width: 50%;
+        }
     }
 }
 
