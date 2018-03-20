@@ -57,6 +57,10 @@ export default class Coin {
                 
                 let minutes = self.checkNumber(this._lastUpdated.getMinutes());
                 $(className + ' .last-updated').html(this._lastUpdated.getHours() + ":" + minutes);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                $('.error-msg').remove();
+                $('.coin-wrapper').append('<div class="error-msg">' + ajaxOptions.toUpperCase() + ' ' + xhr.status + thrownError + ' :(' + '</div>');
             }
         });
     }
