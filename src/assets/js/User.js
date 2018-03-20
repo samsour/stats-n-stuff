@@ -2,7 +2,7 @@ import $ from 'jquery';
 
 export default class User {
     
-    constructor() {
-
+    constructor(username) {
+        this._name = username;
     }
 }

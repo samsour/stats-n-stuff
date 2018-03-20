@@ -7,7 +7,7 @@ import Train from './Train';
 import User from './User';
 
 let currentWeatherObj = null;
-let coinCounter = 1; // set to 0 if no coin initialized in constructor
+let coinCounter = 0; // set to 0 if no coin initialized in constructor
 
 $(document).ready(function() {
     watchEvents();
@@ -15,9 +15,9 @@ $(document).ready(function() {
 
     let weather = new Weather();
 
-    const iota = new Coin('https://api.coinmarketcap.com/v1/ticker/iota/?convert=EUR'); // set coinCounter to 0
+    // const iota = new Coin('https://api.coinmarketcap.com/v1/ticker/iota/?convert=EUR'); // set coinCounter to 0
 
-    const s1 = new Train();
+    //const s1 = new Train();
 
     const clock = new Clock('.clock');
     clock.startTimer();
@@ -30,8 +30,19 @@ function bindKeyEvents() {
             addNewCoin();
         }
     });
+    $('.input-underline').keyup(function(event) {
+        if (event.keyCode === 13) { //ENTER
+            createUser();
+        }
+    });
 }
 
+function createUser() {
+    console.log("Creating user...");
+    const user = new User($('#inputUserName').val());
+    
+    // hide interface, get widgets...
+}
 
 function watchEvents() {
     $('#new-coin-btn').click(function() {
@@ -52,6 +63,7 @@ function addNewCoin() {
         }
         $('.input-coin-name').val('');
     } else {
+        $('.error-msg').remove();
         $('.coin-wrapper').append('<div class="error-msg">Eingabe erforderlich.</div>');
     }
 }
