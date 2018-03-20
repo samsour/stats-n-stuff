@@ -29,7 +29,7 @@ export default class Clock {
 		let weekday = new Array(7);
 		weekday[0] =  "So";
 		weekday[1] = "Mo";
-		weekday[2] = "Die";
+		weekday[2] = "Di";
 		weekday[3] = "Mi";
 		weekday[4] = "Do";
 		weekday[5] = "Fr";
