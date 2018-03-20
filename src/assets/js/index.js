@@ -13,7 +13,7 @@ $(document).ready(function() {
     watchEvents();
     bindKeyEvents();
 
-    let weather = new Weather();
+    let weather = new Weather('frankfurt');
 
     // const iota = new Coin('https://api.coinmarketcap.com/v1/ticker/iota/?convert=EUR'); // set coinCounter to 0
 
@@ -25,12 +25,12 @@ $(document).ready(function() {
     greeting();
 })
 function bindKeyEvents() {
-    $('.input-coin-name').keyup(function(event) {
+    $('#coinNameInput').keyup(function(event) {
         if (event.keyCode === 13) { //ENTER
             addNewCoin();
         }
     });
-    $('.input-underline').keyup(function(event) {
+    $('#userNameInput').keyup(function(event) {
         if (event.keyCode === 13) { //ENTER
             createUser();
         }
