@@ -140,37 +140,40 @@ body {
         .coin-item {
             display: flex;
             flex-direction: row;
-            width: 50%;
             background: $background-transparent-dark;
             transition: all .25s ease-in-out;
             animation: slideInRight .25s ease-in-out;
-
-            &:hover {
-                width: calc(100% - 40px);
-
-                .coin-item-data.hidden {
-                    opacity: 1;
-                }
-            }
-
-            &-data {
-                padding: $padding-normal;
-                flex-grow: 1;
             
-                &.hidden {
-                    transition: .25s ease-in-out;
-                    opacity: 0;
+            @media only screen and (min-width: 600px) {
+                width: 50%;
+            
+                &:hover {
+                    width: calc(100% - 40px);
 
-                    &:hover + .coin-item-close.hidden {
+                    .coin-item-data.hidden {
                         opacity: 1;
                     }
                 }
+            }
+            &-data {
+                padding: $padding-normal;
+                flex-grow: 1;
 
-                .rate {
-                    white-space: nowrap;
+                
+                    &.hidden {
+                        @media only screen and (min-width: 600px) {
+                            transition: .25s ease-in-out;
+                            opacity: 0;
+                        }
+                        &:hover + .coin-item-close.hidden {
+                            opacity: 1;
+                        }
+                    
+                    .rate {
+                        white-space: nowrap;
+                    }
                 }
             }
-
             &-close {
                 &.hidden {
                     transition: .25s ease-in-out;
