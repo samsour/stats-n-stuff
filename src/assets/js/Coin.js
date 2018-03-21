@@ -2,6 +2,7 @@ import $ from 'jquery';
 
 export default class Coin {
 
+    // unnecessary?
     get name() { return this._name };
     set name(name) { this._name = name };
     
@@ -39,14 +40,16 @@ export default class Coin {
 
                 self.createHtml(this._name);
 
-                // print in html
-                let className = '.' + this._name.toLowerCase();
-                
+                // Print in html (in progress! -> auslagern)
+
+                let className = '.' + this._name.toLowerCase(); // Classname should be lowercase.
+
                 $(className + ' .coin-name').html(this._name);
 
-                $(className + ' .coin-price').html(parseFloat(this._price).toFixed(4) + '€');
+                let modifiedPrice = self.checkPrice(parseFloat(this._price).toFixed(4), this._percentChange1h); // Round to 4 decimal places and check whether price rose or fell in last hour. Add class red or green, depending on the direction.
+                $(className + ' .coin-price').html(modifiedPrice);
 
-                let change1h = self.checkPercentage(this._percentChange1h);
+                let change1h = self.checkPercentage(this._percentChange1h); // Add class red or green, depending on %.
                 $(className + ' .percent-change-1h').html(change1h + ' (1H)');
 
                 let change24h = self.checkPercentage(this._percentChange24h);
@@ -55,7 +58,7 @@ export default class Coin {
                 let change7d = self.checkPercentage(this._percentChange7d);
                 $(className + ' .percent-change-7d').html(change7d + ' (7D)');
                 
-                let minutes = self.checkNumber(this._lastUpdated.getMinutes());
+                let minutes = self.checkNumber(this._lastUpdated.getMinutes()); // Add 0 in front if number < 10.
                 $(className + ' .last-updated').html(this._lastUpdated.getHours() + ":" + minutes);
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -67,42 +70,31 @@ export default class Coin {
 
     createHtml(coin) {
 
+        // Auslagern in print class?
+
         $('.coins').append('<div class="coin-item ' 
         + coin.toLowerCase()
         + '"><div class="coin-item-data"><div class="coin-name"></div><div class="coin-price"></div><div class="last-updated"></div></div><div class="coin-item-data hidden"><div class="rate percent-change-1h"></div><div class="rate percent-change-24h"></div><div class="rate percent-change-7d"></div></div><div class="coin-item-close hidden"><button type="button" class="remove-coin" id="closeCoin-' + /*coin counter +*/ '">x</button></div></div>')
     }
 
-    /*
-                        <div class="coin-item iota">
-                            <div class="coin-item-data">
-                                <div class="coin-name">IOTA</div>
-                                <div class="coin-price">1.0539€</div>
-                                <div class="last-updated">10:24</div>
-                            </div>
-                            <div class="coin-item-data hidden">
-                                <div class="rate percent-change-1h">
-                                    <span class="red">-0.44%</span> (1H)
-                                </div>
-                                <div class="rate percent-change-24h">
-                                    <span class="green">6.25%</span> (24H)
-                                </div>
-                                <div class="rate percent-change-7d">
-                                <span class="red">-1.7%</span> (7D)
-                            </div>
-                        </div>
-                        <div class="coin-item-close hidden">
-                            <button type="button" class="remove-coin" id="closeCoin-">x</button>
-                        </div>
-                        */
-
     checkNumber(i) {
 		if (i < 10) {i = "0" + i};  
 		return i;
     }
+
+    checkPrice(price, percentage) {
+        if (percentage > 0) {
+            return '<span class="green">' + price + '€</span>'
+        } else if (percentage < 0) {
+            return '<span class="red">' + price + '€</span>'
+        } else {
+            return price + '€';
+        }
+    }
     
     checkPercentage(i) {
         if (i > 0) {
-            return '<span class="green">' + i + '%' + '</span>'
+            return '<span class="green">' + '+' + i + '%' + '</span>'
         } else if (i < 0) {
             return '<span class="red">' + i + '%' + '</span>'
         } else {
