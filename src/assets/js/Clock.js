@@ -2,7 +2,6 @@ import $ from 'jquery';
 
 export default class Clock {
 
-
 	get clockClass() { return this._clockClass }
 	set clockClass(className) { this._clockClass = className }
 

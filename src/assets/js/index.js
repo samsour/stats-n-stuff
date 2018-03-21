@@ -6,42 +6,32 @@ import Coin from './Coin';
 import Train from './Train';
 import User from './User';
 
-let currentWeatherObj = null;
+//let weather = null;
 let coinCounter = 0; // set to 0 if no coin initialized in constructor
 
 $(document).ready(function() {
     watchEvents();
     bindKeyEvents();
 
-    let weather = new Weather('frankfurt', 'de');
+    const weather = new Weather('frankfurt', 'de');
 
     // const iota = new Coin('https://api.coinmarketcap.com/v1/ticker/iota/?convert=EUR'); // set coinCounter to 0
 
-    //const s1 = new Train();
+    // const s1 = new Train();
 
     const clock = new Clock('.clock');
     clock.startTimer();
     
     greeting();
 })
+
+// Move to User class (Controls).
 function bindKeyEvents() {
     $('#coinNameInput').keyup(function(event) {
         if (event.keyCode === 13) { //ENTER
             addNewCoin();
         }
     });
-    $('#userNameInput').keyup(function(event) {
-        if (event.keyCode === 13) { //ENTER
-            createUser();
-        }
-    });
-}
-
-function createUser() {
-    console.log("Creating user...");
-    const user = new User($('#inputUserName').val());
-    
-    // hide interface, get widgets...
 }
 
 function watchEvents() {
@@ -68,6 +58,8 @@ function addNewCoin() {
     }
 }
 
+
+// Move to Clock class.
 function greeting() {
     let today = new Date();
     let h = today.getHours();
@@ -85,28 +77,68 @@ function greeting() {
     }
 }
 
-// function setBackground() {
-
-//     $('body').removeClass();
-
-//     switch(data) {
-//         case data == 100:
-//             $('body').addClass('sunny');
-//             break;
-//         case data == 101:
-//             $('body').addClass('rainy');
-//             break;
-//         case data == 102:
-//             $('body').addClass('mostly-clouds');
-//             break;
-//         default:
-//             $('body').addClass('neutral');
-//             break;
-//     }
-// }
-
 /*
+*
+* ToDo's
+*
+*
 
+
+
+
+// - Coin suggestion @ coinNameInput
+
+
+
+
+// - API helper class!
+
+
+
+
+// - Startseite
+
+function createUser() {
+    console.log("Creating user...");
+    const user = new User($('#inputUserName').val());
+    
+    // hide interface, get widgets...
+}
+
+// in bindKeyEvents:
+$('#userNameInput').keyup(function(event) {
+        if (event.keyCode === 13) { //ENTER
+            createUser();
+        }
+    });
+
+
+
+
+// - Dynamic Background Change - DBC
+
+function setBackground() {
+    $('body').removeClass();
+    switch(data) {
+        case data == 100:
+            $('body').addClass('sunny');
+            break;
+        case data == 101:
+            $('body').addClass('rainy');
+            break;
+        case data == 102:
+            $('body').addClass('mostly-clouds');
+            break;
+        default:
+            $('body').addClass('neutral');
+            break;
+    }
+}
+
+
+
+
+// Save current settings to local storage
     var testObject = { 'one': 1, 'two': 2, 'three': 3 };
 
     // Put the object into storage
@@ -117,4 +149,4 @@ function greeting() {
 
     console.log('retrievedObject: ', JSON.parse(retrievedObject));
 
-*/
+    */

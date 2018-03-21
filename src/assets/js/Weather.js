@@ -6,7 +6,7 @@ export default class Weather {
     }
 
     getWeather(location) {
-        // weather api call
+        // Weather api call
         $.ajax({
             url: 'https://api.apixu.com/v1/current.json?key=2c8bf56be4704deeb4b102456181403&q=' + location +'&lang=de',
             dataType: 'json',
