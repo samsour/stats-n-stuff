@@ -3,17 +3,38 @@
 ![Screenshot](./src/assets/img/screenshots/laptop-mdpi-screen.png?raw=true "Stats and Stuff - Desktop")
 
 New-tab widget for fancy information and nice stats!
+At this time you can:
+- Display the weather at ~~your current~~ a location
+- Add cryptocoins (Top 100)
+- ~~Add~~ Click on some Bookmarks
+
+## ToDo's
+
+- Widgets
+  - ~~Weather~~
+  - ~~Cryptocoins~~
+  - RMV-Api
+  - App Section
+- Dynamic background changing
+- Analog clock
+- Start Screen (Name & Location input)
+
+
+## Environment
 
 It has a Gulp-powered build system with these features:
-- Handlebars HTML templates with Panini (in progress)
 - Sass compilation and prefixing
-- JavaScript module bundling with webpack (in progress)
 - Built-in BrowserSync server
 - For production builds:
   - CSS compression
   - JavaScript compression
   - HTML compression
   - Image compression
+
+In progress:
+- Handlebars HTML templates with Panini
+- JavaScript module bundling with webpack
+
 
 ## Stack Dependencies
 
@@ -22,6 +43,7 @@ To use this stack, your need:
 - [NodeJS](https://nodejs.org/en/) (0.12 or greater)
 - [Yarn](https://yarnpkg.com/en/docs/install) (used instead of npm for dependency management)
 - [Git](https://git-scm.com/)
+
 
 ## Setup
 
