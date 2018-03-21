@@ -2,7 +2,6 @@
 @import 'config';
 @import 'mixins';
 
-
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +17,7 @@
 body {
     font-family: $font-standard;
     color: $color-transparent-dark;
-    background: $color-black;
+    background: $background-body;
     overflow-x: hidden;
 }
 
@@ -128,6 +127,7 @@ body {
 
 .coin-wrapper {
     position: relative;
+    animation: slideInLeft 1s ease-out;
 
     .coins {
         bottom: 0;
@@ -353,7 +353,7 @@ body {
     100% { transform: translateY(0%); }
 }
 
-@keyframes slideInRight {
+@keyframes slideInLeft {
     0% {
         opacity: 0;
         transform: translateX(20%);
@@ -364,7 +364,7 @@ body {
     }
 }
 
-@keyframes slideInLeft {
+@keyframes slideInRight {
     0% {
         opacity: 0;
         transform: translateX(-20%);
@@ -378,7 +378,7 @@ body {
 @keyframes slideInTop {
     0% {
         opacity: 0;
-        transform: translateY(-20%);
+        transform: translateY(20%);
     }
     100% { 
         opacity: 1;
