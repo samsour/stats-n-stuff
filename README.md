@@ -6,7 +6,7 @@ New-tab widget for fancy information and nice stats!
 At this time you can:
 - Display the weather at ~~your current~~ a location
 - Add cryptocoins (Top 100)
-- ~~Add~~ Click on some Bookmarks
+- ~~Add~~ Use some Bookmarks
 
 ## ToDo's
 
@@ -18,6 +18,12 @@ At this time you can:
 - Dynamic background changing
 - Analog clock
 - Start Screen (Name & Location input)
+- Settings Menu
+- Save options (local storage)
+- Current location request
+- Date API
+- Parallax Scrolling
+- Remove Coin Function
 
 
 ## Environment
