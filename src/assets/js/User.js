@@ -5,9 +5,10 @@ export default class User {
     constructor(username, location) {
         this._name = username;
         this._location = location;
+        this.updateHtml();
     }
 
-    changeLocation(location) {
-        this._location = location;
+    updateHtml() {
+        $('.username').html(this._name);
     }
 }

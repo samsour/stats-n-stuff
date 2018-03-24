@@ -13,7 +13,8 @@ $(document).ready(function() {
     watchEvents();
     bindKeyEvents();
 
-    const weather = new Weather('frankfurt', 'de');
+    let user = new User("Dude","Frankfurt");
+    let weather = new Weather('frankfurt', 'de');
 
     // const iota = new Coin('https://api.coinmarketcap.com/v1/ticker/iota/?convert=EUR'); // set coinCounter to 0
 
@@ -23,6 +24,7 @@ $(document).ready(function() {
     clock.startTimer();
     
     greeting();
+
 })
 
 // Move to User class (Controls).
