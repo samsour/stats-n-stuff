@@ -8,8 +8,6 @@ import User from './User';
 import Options from './Options';
 import Controls from './Controls';
 
-//let weather = null;
-let coinCounter = 0; // set to 0 if no coin initialized in constructor
 
 $(document).ready(function() {
     let controls = new Controls();

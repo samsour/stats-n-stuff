@@ -29,7 +29,7 @@ body {
     overflow-x: hidden;
     position: relative;
     // background: linear-gradient(to bottom right, rgba(70, 10, 10, 1), rgb(42, 42, 64));
-    background: url('../img/background4.jpeg') center no-repeat;
+    background: url('../img/background2.jpeg') center no-repeat;
     background-size: cover;
     animation: opacity 1s ease-in-out;
     transition: 1s ease-in-out;
@@ -88,16 +88,28 @@ body {
         }
     }
 
-    .bottom-center {
-        position: relative;
-        bottom: 0;
-        padding: $padding-normal;
+    .bottom {
+        &-left {
+            position: relative;
+            bottom: 0;
+            padding: $padding-normal;
 
-        @media only screen and (min-width: 600px) {
-            position: absolute;
-            left: 50%;
-            bottom: 0; // set to top if you want weather to be at the top lool
-            transform: translateX(-50%);
+            @media only screen and (min-width: 600px) {
+                position: absolute;
+                left: 0;
+            }
+        }
+        &-center {
+            position: relative;
+            bottom: 0;
+            padding: $padding-normal;
+
+            @media only screen and (min-width: 600px) {
+                position: absolute;
+                left: 50%;
+                bottom: 0; // set to top if you want weather to be at the top lool
+                transform: translateX(-50%);
+            }
         }
     }
 }
@@ -109,17 +121,16 @@ body {
     animation: slideInBottom 2s ease-out;
     
     .app-item {
-        padding: $padding-half;
+        padding: $padding-normal;
 
         img {
-            width: 40px;
+            width: 30px;
             filter: opacity(0.5);
             transition: .2s all ease-in-out;
 
             &:hover {
                 width: 50px;
                 filter: opacity(0.8);
-                // filter: invert(100%);
             }
         }
     }
@@ -212,10 +223,9 @@ body {
         }
 
         .input-coin-name {
+            @include itemReset();
             order: 1;
             width: 0%;
-            border: 0;
-            outline: 0;
             opacity: 1;
             background: $background-transparent-dark;
             color: $color-transparent-dark;
@@ -226,23 +236,47 @@ body {
             transition: .25s all ease-in-out;
 
             &:hover {
-                width: calc(50%);
+                width: 100%;
                 background: $background-transparent-light;
+                
+                &::placeholder { 
+                    color: $color-transparent-light;
+                }
             }
+
             &:focus {
                 width: calc(100% - 40px);
                 background: $background-transparent-bright;
+
+                &::placeholder { 
+                    color: transparent;
+                }
             }
         }
         
         .new-coin-btn {
-            @include transparent-button($color-transparent-light, $background-transparent-dark);
+            @include itemReset();
             order: 2;
+            padding: $padding-normal;
+            background: $background-transparent-dark;
+            cursor: pointer;
 
             &:hover {
+                transition: .1s all ease-in-out;
+                background: $background-transparent-light;
+
                 & + .input-coin-name {
-                    width: calc(50%);
+                    width: 100%;
                 }
+
+                img {
+                    opacity: 1;
+                }
+            }
+            img {
+                width: 30px;
+                opacity: .5;
+                transition: .1s all ease-in-out;
             }
         }
     }
@@ -253,19 +287,20 @@ body {
     align-items: center;
     padding: $padding-normal;
     font-size: $font-size-medium;
+    font-weight: lighter;
     text-align: center;
     background: $background-transparent-dark;
     color: $color-transparent-bright;
     animation: slideInLeft 2s ease-in-out;
 
     &-icon {
-        padding: $padding-half;
         opacity: 0.8;
         animation: opacity 2s ease-in-out;
     }
 }
 
 .clock {
+    font-weight: lighter;
 
     &-item {
         display: inline-block;
@@ -316,6 +351,105 @@ body {
     }
 }
 
+.options {
+
+    &-container {
+        display: none;
+        flex-wrap: wrap;
+        @media only screen and (min-width: 600px) {
+            min-width: 425px;
+            max-width: 600px;
+        }
+
+        .option-item {
+            flex: 1 0 50%;
+            display: flex;
+            background: $background-transparent-dark;
+
+            &:hover {
+                background: $background-transparent-light;
+            }
+
+            &.active {
+                display: flex;
+                flex: 1 0 100%;
+
+                .option-btn {
+                    background: $background-transparent-light;
+                }
+
+                .option-item-content {
+                    display: flex;
+                    flex: 1 0 50%;
+                    background: $color-transparent-bright;
+                    animation: opacity .25s ease-in-out;
+                }
+            }
+
+            .option-btn {
+                @include itemReset();
+                flex: 1 0 50%;
+                color: $color-transparent-light;
+                padding: $padding-normal;
+            }
+
+            .option-item-content {
+                display: none;
+                align-items: center;
+
+                .option-item-input, .option-item-button {
+                    @include itemReset();
+                    width: 100%;
+                    height: 100%;
+                    text-align: center;
+                    color: $color-transparent-dark;
+
+                    .flex-form {
+                        display: flex;
+                    }
+                }
+            }
+        }
+    }
+
+    &-controls {
+        display: flex;
+        align-items: center;
+
+        &-btn {
+            @include itemReset();
+            padding: $padding-normal;
+            background: $background-transparent-dark;
+            cursor: pointer;
+
+            &:hover {
+                background: $background-transparent-light;
+                transition: .1s all ease-in-out;
+
+                img {
+                    opacity: 1;
+                }
+            }
+
+            img {
+                width: 30px;
+                opacity: .5;
+                transition: .1s all ease-in-out;
+            }
+        }
+        &-save-btn {
+            @include transparent-button($color-green, transparent);
+            width: auto;
+            padding: $padding-half;
+
+            &:hover {
+                background: $background-transparent-light;
+            }
+        }
+    }
+    
+}
+
 .error-msg {
     padding: $padding-half;
     opacity: 0;
@@ -339,6 +473,13 @@ body {
 
 .text-shadow {
     text-shadow: 0 0 60px #000;
+}
+
+// hidden widgets 
+.hidden {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
 }
 
 // CSSAnimations

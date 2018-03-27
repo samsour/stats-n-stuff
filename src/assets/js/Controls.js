@@ -1,25 +1,32 @@
 import $ from 'jquery';
+import Coin from './Coin.js';
+
 
 export default class Controls {
 
     constructor() {
+        this.coinCounter = 0;
     }
 
     bindKeyEvents() {
+        const self = this;
+
         $('#coinNameInput').keyup(function(event) {
             if (event.keyCode === 13) { //ENTER
-                addNewCoin();
+                self.addNewCoin();
             }
         });
     }
 
     watchEvents() {
+        const self = this;
+
         $('#new-coin-btn').click(function() {
-            addNewCoin();
+            self.addNewCoin();
         });
-        
+
         $('#options-btn').click(function() {
-            options.toggleContainer();
+            $('.options-container').toggle('fast');
         })
 
         $('.option-btn').click(function(event) {
@@ -37,8 +44,8 @@ export default class Controls {
             const newCoin = $('#coinNameInput').val();
             const newCoinObject = new Coin('https://api.coinmarketcap.com/v1/ticker/' + newCoin + '/?convert=EUR');
 
-            if(coinCounter < 6) {    
-                coinCounter++;
+            if(this.coinCounter < 5) {    
+                this.coinCounter++;
             } else {
                 $('.new-coin').toggle();
                 $('.coin-wrapper').append('<div class="error-msg">Maximale Anzahl an Coins erreicht.</div>');

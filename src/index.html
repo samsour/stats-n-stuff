@@ -37,7 +37,7 @@
             </div> -->
             <div class="start-text text-shadow">
                 <h2 class="greetings">
-                    <span class="time-period"></span>, <span class="username">Sam</span>!
+                    <span class="time-period"></span>, <span class="username"></span>!
                 </h2>  
                 <div class="street-condition"></div>
             </div>
@@ -51,7 +51,7 @@
         </div>
 
         <div class="top-center">
-            <div class="apps">
+            <div class="apps hidden">
                 <div class="app-item">
                     <a href="http://github.com/samsour/"><img src="./assets/img/svg/github.svg"></a>
                 </div>
@@ -69,7 +69,71 @@
             <div class="coin-wrapper">
                 <div class="coins"></div>
                 <div class="new-coin">
-                    <button type="button" class="new-coin-btn" id="new-coin-btn">+</button><input type="text" class="input-coin-name" id="coinNameInput" placeholder="z.B Bitcoin">
+                    <button type="button" class="new-coin-btn" id="new-coin-btn">
+                            <img src="./assets/img/svg/bitcoin.svg">
+                    </button><input type="text" class="input-coin-name" id="coinNameInput" placeholder="Top 100 Cryptocoins">
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-left">
+            <div class="options">
+                <div class="options-container">
+
+                    <div class="option-item">
+                        <button type="button" class="option-btn">Name</button>
+                        <div class="option-item-content">
+                            <input type="text" class="option-item-input" />
+                        </div>
+                    </div>
+
+                    <div class="option-item">
+                        <button type="button" class="option-btn">Location</button>
+                        <div class="option-item-content">
+                            <input type="text" class="option-item-input" />
+                        </div>
+                    </div>
+
+                    <div class="option-item">
+                        <button class="option-btn">Background</button>
+                        <div class="option-item-content">
+                            <!-- <button type="button" class="option-item-button" id="upload-image">Bild auswählen</button> -->
+                            <form action="upload.php" class="flex-form" method="post" enctype="multipart/form-data">
+                                <input class="option-item-button" type="file" name="fileToUpload" id="upload-image">
+                                <!-- <input class="option-item-button" type="submit" value="Upload Image" name="submit"> -->
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="option-item">
+                        <button type="button" class="option-btn">Colors</button>
+                        <div class="option-item-content">
+                            <input type="text" class="option-item-input" />
+                        </div>
+                    </div>
+
+                    <div class="option-item">
+                        <button type="button" class="option-btn">Font</button>
+                        <div class="option-item-content">
+                            <input type="text" class="option-item-input" placeholder="Current font" />
+                        </div>
+                    </div>
+
+                    <div class="option-item">
+                        <button type="button" class="option-btn">Transparency</button>
+                        <div class="option-item-content">
+                            Slider
+                        </div>
+                    </div>
+
+                </div>
+                <div class="options-controls">
+                    <button type="button" class="options-controls-btn" id="options-btn">
+                        <img src="./assets/img/svg/gear.svg">
+                    </button>
+                    <button type="button" class="options-controls-save-btn hidden" id="options-save-btn">
+                        Save changes
+                    </button>
                 </div>
             </div>
         </div>
