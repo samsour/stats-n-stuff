@@ -43,6 +43,23 @@ export default class Clock {
 		$(this._clockClass + ' .seconds').html(this.checkNumber(s));
 	}
 
+	greet() {
+		let today = new Date();
+		let h = today.getHours();
+		
+		if(h >= 12 && h < 13) {
+			$('.time-period').html("Guten Mittag");
+		} else if(h >= 13 && h < 17) {
+			$('.time-period').html("Guten Nachmittag");
+		} else if(h >= 17 && h < 23) {
+			$('.time-period').html("Guten Abend");
+		} else if(h >= 23 && h < 5) {
+			$('.time-period').html("Gute Nacht");
+		} else {
+			$('.time-period').html("Guten Morgen");
+		}
+	}
+
 	// add zero in front of numbers < 10
 	checkNumber(i) {
 		if (i < 10) {i = "0" + i};  
