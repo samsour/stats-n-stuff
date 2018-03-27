@@ -4,16 +4,40 @@ import Coin from './Coin.js';
 
 export default class Controls {
 
-    constructor() {
+    constructor(user, options) {
         this.coinCounter = 0;
+        this.user = user;
+        this.options = options;
     }
 
     bindKeyEvents() {
         const self = this;
 
+        // Coins
+
         $('#coinNameInput').keyup(function(event) {
             if (event.keyCode === 13) { //ENTER
                 self.addNewCoin();
+            }
+        });
+
+        // Options
+
+        $('#userNameInput').keyup(function(event) {
+            if (event.keyCode === 13) { //ENTER
+                self.user.name = $('#userNameInput').val();
+            }
+        });
+        
+        $('#locationInput').keyup(function(event) {
+            if (event.keyCode === 13) { //ENTER
+                self.user.location = $('#locationInput').val();
+            }
+        });
+
+        $('#langInput').keyup(function(event) {
+            if (event.keyCode === 13) { //ENTER
+                self.user.lang = $('#langInput').val();
             }
         });
     }
@@ -21,11 +45,11 @@ export default class Controls {
     watchEvents() {
         const self = this;
 
-        $('#new-coin-btn').click(function() {
+        $('#newCoinBtn').click(function() {
             self.addNewCoin();
         });
 
-        $('#options-btn').click(function() {
+        $('#optionsBtn').click(function() {
             $('.options-container').toggle('fast');
         })
 
@@ -37,10 +61,16 @@ export default class Controls {
             
             $(event.currentTarget.parentElement).addClass('active');
         })
+
+        $('#optionsSaveBtn').click(function() {
+            
+
+            self.options.saveSettings(self.user);
+        })
     }
 
     addNewCoin() {
-        if($('#coinId').val() != '' ) {
+        if($('#coinNameInput').val() != '' ) {
             const newCoin = $('#coinNameInput').val();
             const newCoinObject = new Coin('https://api.coinmarketcap.com/v1/ticker/' + newCoin + '/?convert=EUR');
 

@@ -7,28 +7,31 @@ import Train from './Train';
 import User from './User';
 import Options from './Options';
 import Controls from './Controls';
+import Printer from './Printer';
 
 
 $(document).ready(function() {
-    let controls = new Controls();
+    
+    let user = new User();
+    user.getValues();
+    console.log(user.name + user.location + user.lang);
+    let options = new Options();
+
+    options.getSettings();
+
+    let controls = new Controls(user, options);
     controls.watchEvents();
     controls.bindKeyEvents();
 
-    let options = new Options();
-    options.saveSettings();
-    options.getSettings()
-
-    let user = new User("Dude","Frankfurt");
-    let weather = new Weather('frankfurt', 'de');
-
-    // const iota = new Coin('https://api.coinmarketcap.com/v1/ticker/iota/?convert=EUR'); // set coinCounter to 0
-
-    // const s1 = new Train();
+    let weather = new Weather(user);
 
     const clock = new Clock('.clock');
     clock.startTimer();
     clock.greet();
 })
+
+
+
 /*
 *
 * ToDo's

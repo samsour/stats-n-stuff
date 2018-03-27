@@ -1,8 +1,8 @@
 import $ from 'jquery';
 
 export default class Weather {
-    constructor(location) {
-        this.getWeather(location);
+    constructor(user) {
+        this.getWeather(user.location);
     }
 
     getWeather(location) {

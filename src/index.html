@@ -69,7 +69,7 @@
             <div class="coin-wrapper">
                 <div class="coins"></div>
                 <div class="new-coin">
-                    <button type="button" class="new-coin-btn" id="new-coin-btn">
+                    <button type="button" class="new-coin-btn" id="newCoinBtn">
                             <img src="./assets/img/svg/bitcoin.svg">
                     </button><input type="text" class="input-coin-name" id="coinNameInput" placeholder="Top 100 Cryptocoins">
                 </div>
@@ -83,14 +83,21 @@
                     <div class="option-item">
                         <button type="button" class="option-btn">Name</button>
                         <div class="option-item-content">
-                            <input type="text" class="option-item-input" />
+                            <input id="userNameInput" class="option-item-input" type="text" />
                         </div>
                     </div>
 
                     <div class="option-item">
                         <button type="button" class="option-btn">Location</button>
                         <div class="option-item-content">
-                            <input type="text" class="option-item-input" />
+                            <input id="locationInput" type="text" class="option-item-input" />
+                        </div>
+                    </div>
+
+                    <div class="option-item">
+                        <button type="button" class="option-btn">Language</button>
+                        <div class="option-item-content">
+                            <input id="langInput" type="text" class="option-item-input" />
                         </div>
                     </div>
 
@@ -99,7 +106,7 @@
                         <div class="option-item-content">
                             <!-- <button type="button" class="option-item-button" id="upload-image">Bild auswählen</button> -->
                             <form action="upload.php" class="flex-form" method="post" enctype="multipart/form-data">
-                                <input class="option-item-button" type="file" name="fileToUpload" id="upload-image">
+                                <input class="option-item-button" type="file" name="fileToUpload" id="uploadImage">
                                 <!-- <input class="option-item-button" type="submit" value="Upload Image" name="submit"> -->
                             </form>
                         </div>
@@ -128,10 +135,10 @@
 
                 </div>
                 <div class="options-controls">
-                    <button type="button" class="options-controls-btn" id="options-btn">
+                    <button type="button" class="options-controls-btn" id="optionsBtn">
                         <img src="./assets/img/svg/gear.svg">
                     </button>
-                    <button type="button" class="options-controls-save-btn hidden" id="options-save-btn">
+                    <button type="button" class="options-controls-save-btn " id="optionsSaveBtn">
                         Save changes
                     </button>
                 </div>
