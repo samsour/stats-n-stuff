@@ -30,3 +30,12 @@
         width: 50%;
     }
 }
+
+@mixin itemReset() {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: $color-transparent-light;
+    font-size: $font-size-normal;
+    font-family: $font-standard;
+}
