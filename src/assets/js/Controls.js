@@ -63,16 +63,24 @@ export default class Controls {
         })
 
         $('#optionsSaveBtn').click(function() {
+            self.user.name = $('#userNameInput').val();
+            self.user.location = $('#locationInput').val();
+            self.user.lang = $('#langInput').val();
             
-
             self.options.saveSettings(self.user);
         })
     }
 
     addNewCoin() {
+
         if($('#coinNameInput').val() != '' ) {
             const newCoin = $('#coinNameInput').val();
+            console.log(newCoin);
+            
             const newCoinObject = new Coin('https://api.coinmarketcap.com/v1/ticker/' + newCoin + '/?convert=EUR');
+            
+            this.user.addCoin(newCoin);
+            console.log(this.user);
 
             if(this.coinCounter < 5) {    
                 this.coinCounter++;
@@ -81,7 +89,7 @@ export default class Controls {
                 $('.coin-wrapper').append('<div class="error-msg">Maximale Anzahl an Coins erreicht.</div>');
             }
             $('.input-coin-name').val('');
-        } else {
+        } else { //remove current error messages to prevent duplicated error messages
             $('.error-msg').remove();
             $('.coin-wrapper').append('<div class="error-msg">Eingabe erforderlich.</div>');
         }

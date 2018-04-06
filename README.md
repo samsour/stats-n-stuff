@@ -14,16 +14,16 @@ At this time you can:
   - ~~Weather~~
   - ~~Cryptocoins~~
   - RMV-Api
-  - App Section
+  - ~~App Section~~
 - Dynamic background changing
 - Analog clock
 - Start Screen (Name & Location input)
-- Settings Menu
-- Save options (local storage)
+- ~~Settings Menu~~
+- ~~Save options (local storage)~~
 - Current location request
 - Date API
 - Parallax Scrolling
-- Remove Coin Function
+- Remove Coin Function (CSS already done)
 
 
 ## Environment

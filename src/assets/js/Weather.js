@@ -2,13 +2,13 @@ import $ from 'jquery';
 
 export default class Weather {
     constructor(user) {
-        this.getWeather(user.location);
+        this.getWeather(user.location, user.lang);
     }
 
-    getWeather(location) {
+    getWeather(location, lang) {
         // Weather api call
         $.ajax({
-            url: 'https://api.apixu.com/v1/current.json?key=2c8bf56be4704deeb4b102456181403&q=' + location +'&lang=de',
+            url: 'https://api.apixu.com/v1/current.json?key=2c8bf56be4704deeb4b102456181403&q=' + location +'&lang=' + lang,
             dataType: 'json',
             success: function(data) {
                 console.log("Weather JSON: ", data);

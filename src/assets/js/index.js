@@ -14,10 +14,10 @@ $(document).ready(function() {
     
     let user = new User();
     user.getValues();
-    console.log(user.name + user.location + user.lang);
+    
     let options = new Options();
-
     options.getSettings();
+    options.fillInputs();
 
     let controls = new Controls(user, options);
     controls.watchEvents();

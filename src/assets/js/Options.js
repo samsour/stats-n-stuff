@@ -3,7 +3,6 @@ import $ from 'jquery';
 export default class Options {
 
     constructor() {
-        this.getSettings();
     }
 
     getSettings() {
@@ -11,12 +10,12 @@ export default class Options {
         const retrievedObject = localStorage.getItem('config');
         const config = JSON.parse(retrievedObject);
         console.log('Local Storage JSON: ', config);
-        
         return config;
     }
 
     saveSettings(user) {
         // Save current settings to local storage
+        console.log(user.getCoins());
         var config = {
             "visuals":
             {
@@ -30,7 +29,7 @@ export default class Options {
                 "name": user.name,
                 "location": user.location,
                 "lang": user.lang,
-                "coins": [],
+                "coins": user.getCoins(),
                 "apps": []
             }
         };
@@ -38,5 +37,9 @@ export default class Options {
         // Put the object into storage
         localStorage.setItem('config', JSON.stringify(config));
         console.log("Save settings: ", config);
+    }
+
+    fillInputs() {
+
     }
 }

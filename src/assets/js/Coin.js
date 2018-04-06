@@ -78,7 +78,7 @@ export default class Coin {
     }
 
     checkNumber(i) {
-		if (i < 10) {i = "0" + i};  
+		if (i < 10) {i = "0" + i};
 		return i;
     }
 

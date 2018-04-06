@@ -6,12 +6,11 @@ export default class User {
         this._name = "";
         this._location = "";
         this._lang = "";
-
         this._coins = [];
     }
 
     get name() { return this._name }
-	set name(username) { 
+	set name(username) {
         this._name = username;
         this.updateHtml();
     }
@@ -27,8 +26,12 @@ export default class User {
         this._lang = newLang;
         this.updateHtml();
     }
-
+    
+    getCoins() {
+        return this._coins;
+    }
     addCoin(coin) {
+        console.log(this._coins);
         this._coins.push(coin);
     }
 
@@ -40,7 +43,9 @@ export default class User {
         this._location = config.user.location;
         this._lang = config.user.lang;
         
-        this.updateHtml();
+        this._coins = config.user.coins || []
+        
+        this.updateHtml();  
     }
 
     updateHtml() {
