@@ -48,15 +48,15 @@ export default class Clock {
 		let h = today.getHours();
 		
 		if(h >= 12 && h < 13) {
-			$('.time-period').html("Guten Mittag");
+			$('.time-period').html("Hello");
 		} else if(h >= 13 && h < 17) {
-			$('.time-period').html("Guten Nachmittag");
-		} else if(h >= 17 && h < 23) {
-			$('.time-period').html("Guten Abend");
-		} else if(h >= 23 && h < 5) {
-			$('.time-period').html("Gute Nacht");
+			$('.time-period').html("Good afternoon");
+		} else if(h >= 17 && h < 24) {
+			$('.time-period').html("Good evening");
+		} else if(h >= 24 && h < 5) {
+			$('.time-period').html("Good morning");
 		} else {
-			$('.time-period').html("Guten Morgen");
+			$('.time-period').html("Good morning");
 		}
 	}
 
