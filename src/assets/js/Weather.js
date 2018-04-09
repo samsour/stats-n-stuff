@@ -24,13 +24,13 @@ export default class Weather {
 
                 $('.weather-temperature').html(
                     location
-                    + ' // ' 
+                    + ' | ' 
                     + conditionText 
-                    + ' // '
+                    + ' | '
                     + temperature 
                     + ' °C '
-                    + checkPhrase(temperature, feelsLike) 
-                    + ' gefühlte ' + data.current.feelslike_c + '°C'
+                    // + checkPhrase(temperature, feelsLike) 
+                    // + ' gefühlte ' + data.current.feelslike_c + '°C'
                 );
                 
                 function checkPhrase(temp1, temp2) {

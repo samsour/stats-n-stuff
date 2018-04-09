@@ -11,7 +11,6 @@ export default class Coin {
     get percentChange24h() { return this._percentChange24h};
     get percentChange7d() { return this._percentChange7d};
     get lastUpdated() { return this._lastUpdated};
-
     
 	constructor(url) {
         this.getData(url);

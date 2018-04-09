@@ -51,6 +51,7 @@ export default class Controls {
 
         $('#optionsBtn').click(function() {
             $('.options-container').toggle('fast');
+            $('.options-controls-save-btn').toggle('fast');
         })
 
         $('.option-btn').click(function(event) {
