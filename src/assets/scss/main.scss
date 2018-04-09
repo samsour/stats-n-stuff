@@ -64,7 +64,7 @@ body {
 
             @media only screen and (min-width: 600px) {
                 position: absolute;
-                top: -11%;
+                top: -90px;
                 left: 50%;
                 transform: translateX(-50%);
                 transition: .2s ease-in-out all;
@@ -322,6 +322,7 @@ body {
     display: flex;
     align-items: center;
     padding: $padding-normal;
+    border-radius: 2px;
     font-size: $font-size-medium;
     font-weight: lighter;
     text-align: center;
