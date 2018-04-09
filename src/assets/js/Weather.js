@@ -32,6 +32,10 @@ export default class Weather {
                     // + checkPhrase(temperature, feelsLike) 
                     // + ' gefühlte ' + data.current.feelslike_c + '°C'
                 );
+
+                //prefill options section
+                $('#locationInput').val(location);
+                $('#langInput').val(lang);
                 
                 function checkPhrase(temp1, temp2) {
                     if(temp1 == temp2) {

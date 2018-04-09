@@ -50,5 +50,6 @@ export default class User {
 
     updateHtml() {
         $('.username').html(this._name);
+        $('#userNameInput').val(this._name);
     }
 }
