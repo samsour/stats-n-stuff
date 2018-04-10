@@ -67,8 +67,8 @@ export default class Controls {
             self.user.name = $('#userNameInput').val();
             self.user.location = $('#locationInput').val();
             self.user.lang = $('#langInput').val();
-            
             self.options.saveSettings(self.user);
+            location.reload();
         })
     }
 
