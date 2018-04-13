@@ -36,9 +36,30 @@ export default class User {
     }
 
     getValues() {
-        const retrievedObject = localStorage.getItem('config');
-        const config = JSON.parse(retrievedObject);
-
+        let retrievedObject = localStorage.getItem('config');
+        let config;
+        if(retrievedObject === undefined || retrievedObject === null) {
+            config = {
+                visuals:
+                {
+                    background: "assets/img/background4.jpg",
+                    transparency: "0.5",
+                    theme: "default"
+                },
+            
+                user:
+                {
+                    name: "Username",
+                    location: "Frankfurt",
+                    lang: "en",
+                    coins: [],
+                    apps: []
+                }
+            };
+        } else {
+            config = JSON.parse(retrievedObject);
+        }
+        
         this._name = config.user.name;
         this._location = config.user.location;
         this._lang = config.user.lang;

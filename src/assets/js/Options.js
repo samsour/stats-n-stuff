@@ -8,6 +8,9 @@ export default class Options {
     getSettings() {
         // Retrieve the object from chrome storage
         const retrievedObject = localStorage.getItem('config');
+        
+        
+
         const config = JSON.parse(retrievedObject);
         console.log('Local Storage JSON: ', config);
         return config;
