@@ -420,6 +420,21 @@ body {
                     flex: 1 0 50%;
                     background: $color-transparent-bright;
                     animation: opacity .25s ease-in-out;
+                    justify-content: center;
+
+                    label {
+                        display: flex;
+                        align-items: center;
+                        
+                        .tiny-icon {
+                            width: 18px;
+                            height: 18px;
+                            opacity: .8;
+                            filter: invert(100%);
+                            margin-right: 10px;
+                        }
+                    }
+                    
                 }
             }
 
@@ -514,6 +529,17 @@ body {
             width: auto;
             padding: $padding-half;
             white-space: nowrap;
+            
+            // &:after {
+            //     content: "";
+            //     display: inline-block;
+            //     width: 20px;
+            //     height: 20px;
+            //     background: url('../img/svg/download.svg');
+            //     background-size: 100%;
+            //     margin-left: 10px;
+            //     opacity: .8;
+            // }
 
             &:hover {
                 background: $background-transparent-light;

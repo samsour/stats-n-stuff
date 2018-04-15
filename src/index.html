@@ -114,8 +114,11 @@
                         <div class="option-item-content">
                             <!-- <button type="button" class="option-item-button" id="upload-image">Bild auswählen</button> -->
                             <form action="upload.php" class="flex-form" method="post" enctype="multipart/form-data">
-                                <input class="option-item-button" type="file" name="fileToUpload" id="uploadImage">
+                                <input class="option-item-button totally-hidden" type="file" name="fileToUpload" id="upload-image-button">
                                 <!-- <input class="option-item-button" type="submit" value="Upload Image" name="submit"> -->
+                                <label for="upload-image-button">
+                                    <img class="tiny-icon" src="./assets/img/svg/upload.svg">Choose File
+                                </label>
                             </form>
                         </div>
                     </div>
