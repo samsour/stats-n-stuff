@@ -123,7 +123,7 @@ function server(done) {
   browser.init({
     server: PATHS.dist,
     port: PORT,
-    https: true
+    https: false
   });
   done();
 }
