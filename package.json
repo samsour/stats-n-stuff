@@ -1,39 +1,35 @@
 {
-  "name": "es6-setup",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "stats-n-stuff",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gulp",
-    "build": "gulp build",
-    "build:production": "gulp build --production"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.0.0-beta.39",
-    "@babel/preset-env": "^7.0.0-beta.39",
-    "babel-loader": "^7.1.2",
-    "babel-polyfill": "^6.26.0",
-    "babel-register": "^7.0.0-beta.3",
-    "browser-sync": "^2.10.0",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-htmlmin": "^4.0.0",
-    "gulp-if": "^2.0.2",
-    "gulp-imagemin": "^4.1.0",
-    "gulp-load-plugins": "^1.1.0",
-    "gulp-sass": "^2.1.0",
-    "gulp-sourcemaps": "^1.5.2",
-    "js-yaml": "^3.13.1",
-    "rimraf": "^2.6.2",
-    "vinyl-named": "^1.1.0",
-    "webpack": "^3.10.0",
-    "webpack-stream": "^3.2.0",
-    "yargs": "^11.0.0"
+    "start": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "jquery": "^3.3.1"
+    "core-js": "^3.4.4",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.1.0",
+    "@vue/cli-plugin-eslint": "^4.1.0",
+    "@vue/cli-service": "^4.1.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "lint-staged": "^9.5.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
   }
 }
