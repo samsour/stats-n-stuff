@@ -1,15 +1,18 @@
 <template>
   <div id="app">
-    <weather :location="'Frankfurt'" :language="'de'" />
+    <settings />
+    <weather />
   </div>
 </template>
 
 <script>
+import Settings from './components/Settings';
 import Weather from './components/Weather';
 
 export default {
   name: 'app',
   components: {
+    Settings,
     Weather
   }
 }
