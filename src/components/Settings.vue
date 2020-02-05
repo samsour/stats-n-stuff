@@ -1,6 +1,5 @@
 <template>
   <div class="settings">
-      Settings
       <input type="text" v-model="location" />
       <button @click="refresh">Refresh</button>
   </div>

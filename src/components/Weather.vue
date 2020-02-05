@@ -1,7 +1,6 @@
 <template>
   <div class="weather">
-    {{ location }}
-    {{ temperature }}
+    {{ temperature }} in {{ location }}, but feels like {{ feelslike }}
   </div>
 </template>
 
@@ -13,7 +12,8 @@ export default {
   computed: {
     ...mapGetters({
         location: "weather/location",
-        temperature: "weather/temperature"
+        temperature: "weather/temperature",
+        feelslike: "weather/feelslike"
     })
   },
   mounted() {
