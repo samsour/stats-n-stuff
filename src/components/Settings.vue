@@ -1,6 +1,6 @@
 <template>
   <div class="settings">
-      <input type="text" v-model="location" />
+      <input type="text" v-model="locationInput" />
       <button @click="refresh">Refresh</button>
   </div>
 </template>
@@ -11,12 +11,12 @@ import { mapGetters } from 'vuex';
 export default {
     name: "settings",
     computed: {
-        location: {
+        locationInput: {
             get() {
-                return this.$store.getters["weather/location"];
+                return this.$store.getters["location"];
             },
             set(locationName) {
-                this.$store.commit("weather/SET_LOCATION", locationName);
+                this.$store.commit("SET_LOCATION", locationName);
             }
         }
     },

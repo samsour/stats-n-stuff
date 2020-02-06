@@ -9,5 +9,18 @@ export default new Vuex.Store({
         weather
     },
     state: {
+        settings: {
+            location: 'Frankfurt',
+            name: 'User',
+            language: 'en'
+        }
+    },
+    getters: {
+        location: state => state.settings.location,
+    },
+    mutations: {
+        SET_LOCATION(state, data) {
+            state.settings.location = data;
+        }
     }
   })

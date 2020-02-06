@@ -1,6 +1,6 @@
 <template>
   <div class="weather">
-    {{ temperature }} in {{ location }}, but feels like {{ feelslike }}
+    {{ temperature }} in {{ locationName }}, but feels like {{ feelslike }}
   </div>
 </template>
 
@@ -11,13 +11,14 @@ export default {
   name: "weather",
   computed: {
     ...mapGetters({
-        location: "weather/location",
+        locationInput: "location",
+        locationName: "weather/locationName",
         temperature: "weather/temperature",
         feelslike: "weather/feelslike"
     })
   },
   mounted() {
-      if (this.location) {
+      if (this.locationInput) {
           this.$store.dispatch("weather/fetchData");
       }
   }

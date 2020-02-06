@@ -3,19 +3,15 @@ import api from "@/utils/api";
 export default {
     namespaced: true,
     state: {
-        location: "Frankfurt",
         locationData: {},
         weatherData: {}
     },
     getters: {
-        location: state => state.location,
-        temperature: state => state.weatherData.temperature | '?',
-        feelslike: state => state.weatherData.feelslike | '?',
+        locationName: state => state.locationData ? state.locationData.name : 'anywhere',
+        temperature: state => state.weatherData ? state.weatherData.temperature : 0,
+        feelslike: state => state.weatherData ? state.weatherData.feelslike : 0
     },
     mutations: {
-        SET_LOCATION(state, data) {
-            state.location = data;
-        },
         SET_LOCATION_DATA(state, data) {
             state.locationData = data;
         },
@@ -24,8 +20,8 @@ export default {
         }
     },
     actions: {
-        fetchData({ commit, state }) {
-            fetch(`${api.baseUrl}/current?access_key=${api.accessToken}&query=${state.location}`)
+        fetchData({ commit, state, rootState }) {
+            fetch(`${api.baseUrl}/current?access_key=${api.accessToken}&query=${rootState.settings.location}`)
                 .then(response => response.json())
                 .then(data => {
                     data.location ? commit("SET_LOCATION_DATA", data.location) : console.log("no location");
