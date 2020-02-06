@@ -1,4 +1,4 @@
-import api from "@/utils/api";
+import api from "@/utils/weather-api";
 
 export default {
     namespaced: true,
@@ -20,8 +20,8 @@ export default {
         }
     },
     actions: {
-        fetchData({ commit, state, rootState }) {
-            fetch(`${api.baseUrl}/current?access_key=${api.accessToken}&query=${rootState.settings.location}`)
+        fetchData({ commit, rootState }) {
+            fetch(`${api.baseUrl}/current?access_key=${api.key}&query=${rootState.settings.location}`)
                 .then(response => response.json())
                 .then(data => {
                     data.location ? commit("SET_LOCATION_DATA", data.location) : console.log("no location");
