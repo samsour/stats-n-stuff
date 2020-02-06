@@ -20,3 +20,5 @@ yarn-error.log*
 *.sln
 *.sw?
 src/utils/*api.js
+src/utils/rmv-api.js
+src/utils/weather-api.js
