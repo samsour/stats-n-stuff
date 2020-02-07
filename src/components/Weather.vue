@@ -1,6 +1,6 @@
 <template>
   <div class="weather">
-    {{ temperature }} in {{ locationName }}, but feels like {{ feelslike }}
+    {{ temperature }} in {{ locationName }}<span v-if="feelslike !== temperature">, but feels like {{ feelslike }}</span>
   </div>
 </template>
 
