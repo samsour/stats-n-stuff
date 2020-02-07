@@ -15,13 +15,15 @@ export default {
     },
     actions: {
         fetchData({ commit, rootState }) {
-            fetch(`${api.baseUrl}location.name?accessId=${api.key}&input=${rootState.settings.location}&format=json`, {
-            })
+            const proxyurl = "https://cors-anywhere.herokuapp.com/";
+            fetch(`${proxyurl + api.baseUrl}location.name?accessId=${api.key}&input=${rootState.settings.location}&format=json`, {})
                 .then(response => response.json())
                 .then(data => {
-                    console.log("RMV:", data);
                     data.stopLocationOrCoordLocation ? commit("SET_LOCATION_DATA", data.stopLocationOrCoordLocation) : console.log("no location data");
                 })
+                .catch(function(error) {
+                    console.error('Request failed', error)
+                });
         }
     }
 };
