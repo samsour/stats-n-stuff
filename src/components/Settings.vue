@@ -23,6 +23,7 @@ export default {
     methods: {
         refresh() {
             this.$store.dispatch("Weather/fetchData");
+            this.$store.dispatch("RMV/fetchData");
         }
     }
 };
