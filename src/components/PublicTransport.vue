@@ -1,6 +1,8 @@
 <template>
-  <div class="weather">
-    {{ temperature }} in {{ locationName }}, but feels like {{ feelslike }}
+  <div class="public-transport">
+    <ul>
+      <li v-for="stop in currentStops" :key="stop.id">{{ stop.name }}</li>
+    </ul>
   </div>
 </template>
 
@@ -8,18 +10,16 @@
 import { mapGetters } from "vuex";
 
 export default {
-  name: "weather",
+  name: "public-transport",
   computed: {
     ...mapGetters({
         locationInput: "location",
-        locationName: "Weather/locationName",
-        temperature: "Weather/temperature",
-        feelslike: "Weather/feelslike"
+        currentStops: "RMV/currentStops"
     })
   },
   mounted() {
       if (this.locationInput) {
-          this.$store.dispatch("Weather/fetchData");
+          this.$store.dispatch("RMV/fetchData");
       }
   }
 };
@@ -27,7 +27,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.weather {
+.public-transport {
   padding: 20px;
+
+  ul {
+    list-style-type: none;
+  }
 }
 </style>

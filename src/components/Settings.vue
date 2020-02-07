@@ -22,11 +22,8 @@ export default {
     },
     methods: {
         refresh() {
-            this.$store.dispatch("weather/fetchData");
+            this.$store.dispatch("Weather/fetchData");
         }
     }
 };
 </script>
-
-<style>
-</style>

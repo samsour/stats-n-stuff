@@ -1,12 +1,14 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import weather from "./modules/weather";
+import Weather from "./modules/weather";
+import RMV from "./modules/rmv";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     modules: {
-        weather
+        Weather,
+        RMV
     },
     state: {
         settings: {
