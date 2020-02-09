@@ -1,23 +1,12 @@
 <template>
   <div id="app" class="app">
-    <weather />
-    <public-transport />
-    <settings class="app__settings" />
+    <router-view />
   </div>
 </template>
 
 <script>
-import Settings from './components/Settings';
-import Weather from './components/Weather';
-import PublicTransport from './components/PublicTransport';
-
 export default {
-  name: 'app',
-  components: {
-    Settings,
-    Weather,
-    PublicTransport
-  }
+  name: 'app'
 }
 </script>
 
@@ -45,14 +34,7 @@ body {
 }
 
 .app {
-
   text-align: center;
   margin-top: 60px;
-
-  &__settings {
-    position: fixed;
-    bottom: 50px;
-    left: 50px;
-  }
 }
 </style>
