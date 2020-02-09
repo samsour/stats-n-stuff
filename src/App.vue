@@ -50,7 +50,7 @@ body {
   margin-top: 60px;
 
   &__settings {
-    position: absolute;
+    position: fixed;
     bottom: 50px;
     left: 50px;
   }
