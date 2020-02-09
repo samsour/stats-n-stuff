@@ -19,6 +19,9 @@ export default new Vuex.Store({
     },
     getters: {
         location: state => state.settings.location,
+        setupCompleted: state => {
+            return state.settings['location'].length > 0 && state.settings['name'].length > 0 && state.settings['language'].length > 0
+        }
     },
     mutations: {
         SET_LOCATION(state, data) {
