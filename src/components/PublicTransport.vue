@@ -7,7 +7,7 @@
     </ul>
     <ul>
       <li v-for="stop in currentStops" :key="stop.id">
-        <button @click="getStationBoard(stop.extId)">{{ stop.name }}</button>
+        <button @click="getStationBoard(stop.extId)" class="button">{{ stop.name }}</button>
         </li>
     </ul>
   </div>
@@ -49,6 +49,20 @@ export default {
 
   ul {
     list-style-type: none;
+  }
+
+  .button {
+    background: #f2f3f7;
+    border-radius: 30px;
+    border: 0;
+    box-shadow:  8px 8px 16px #cecfd2, -8px -8px 16px #ffffff;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: inset 8px 8px 16px #e5e6e9, inset -8px -8px 16px #ffffff;
+    }
   }
 }
 </style>

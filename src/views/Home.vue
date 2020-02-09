@@ -25,8 +25,8 @@ export default {
 .home {
     &__settings {
         position: fixed;
-        bottom: 50px;
-        left: 50px;
+        bottom: 0;
+        left: 0;
     }
 }
 </style>
