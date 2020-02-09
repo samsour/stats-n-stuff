@@ -18,7 +18,6 @@ export default {
         },
 
         SET_CURRENT_STATION_BOARD(state, data) {
-            console.log(data);
             state.currentStationBoardData = data;
         },
     },
