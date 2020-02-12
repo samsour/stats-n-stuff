@@ -52,17 +52,7 @@ export default {
   }
 
   .button {
-    background: #f2f3f7;
-    border-radius: 30px;
-    border: 0;
-    box-shadow:  8px 8px 16px #cecfd2, -8px -8px 16px #ffffff;
-    padding: 10px 30px;
-    margin-bottom: 20px;
-    cursor: pointer;
-
-    &:hover {
-      box-shadow: inset 8px 8px 16px #e5e6e9, inset -8px -8px 16px #ffffff;
-    }
+    @include neumorphicContainer;
   }
 }
 </style>

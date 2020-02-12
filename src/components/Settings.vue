@@ -31,6 +31,7 @@ export default {
 
 <style lang="scss" scoped>
 .settings {
+    @include neumorphicContainer;
     background-color: #f2f3f7;
     padding: 50px;
 
@@ -49,34 +50,7 @@ export default {
         }
     } 
     &__button {
-        display: block;
-        border: 0;
-        background: #f2f3f7;
-        box-shadow:  8px 8px 16px #cecfd2, 
-             -8px -8px 16px #ffffff;
-        padding: 10px 30px;
-        font-weight: 400;
-        text-transform: uppercase;
-        color: rgba(50, 62, 83, 1);
-        letter-spacing: 1px;
-        // color: #5a84a2;
-        font-size: 16px;
-        outline: 0;
-        border-radius: 50px;
-        // box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15), -6px -6px 10px -1px rgba(255,255,255,0.7);
-        // box-shadow: -2px -2px 8px rgba(255,255,255,1),
-        //             -2px -2px 12px rgba(255,255,255,0.5),
-        //             inset 2px 2px 4px rgba(255,255,255,0.1),
-        //             2px 2px 8px rgba(0,0,0,0.15);
-        transition: all 150ms ease-out;
-        cursor: pointer;
-
-        &:hover {
-            box-shadow: inset -2px -2px 8px rgba(255,255,255,1),
-                        inset -2px -2px 12px rgba(255,255,255,0.5),
-                        inset 2px 2px 4px rgba(255,255,255,0.1),
-                        inset 2px 2px 8px rgba(0,0,0,0.15);
-        }
+        @include neumorphicContainer;
     }
 }
 </style>

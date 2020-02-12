@@ -11,9 +11,6 @@ export default {
 </script>
 
 <style lang="scss">
-$color-primary: #282B35;
-$color-secondary: #f2f3f7;
-
 * {
   margin: 0;
   padding: 0;
