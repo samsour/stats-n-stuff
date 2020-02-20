@@ -1,13 +1,13 @@
 @mixin neumorphicContainer() {
-    background: #f2f3f7;
+    background: var(--color-secondary);
     border-radius: 30px;
     border: 0;
-    box-shadow:  8px 8px 16px #cecfd2, -8px -8px 16px #ffffff;
+    box-shadow:  8px 8px 16px var(--color-secondary-dark-10), -8px -8px 16px var(--color-secondary-light-10);
     padding: 10px 30px;
     margin-bottom: 20px;
     cursor: pointer;
 
     &:hover {
-      box-shadow: inset 8px 8px 16px #e5e6e9, inset -8px -8px 16px #ffffff;
+      box-shadow: inset 8px 8px 16px var(--color-secondary-dark-10), inset -8px -8px 16px var(--color-secondary-light-10);
     }
 }

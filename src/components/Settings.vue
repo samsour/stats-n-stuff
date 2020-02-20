@@ -29,25 +29,6 @@ export default {
 <style lang="scss" scoped>
 .settings {
     @include neumorphicContainer;
-    background-color: #f2f3f7;
     padding: 50px;
-
-    &__input {
-        display: block;
-        margin-bottom: 20px;
-        background: transparent;
-        border: 0;
-
-        &::after {
-            content: "";
-            display: block;
-            background-color: currentColor;
-            width: 100%;
-            height: 10px;
-        }
-    } 
-    &__button {
-        @include neumorphicContainer;
-    }
 }
 </style>
