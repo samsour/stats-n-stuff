@@ -28,13 +28,8 @@ body {
 
 
   @media (prefers-color-scheme: dark) {
-    // color: $color-secondary;
-    // background-color: $color-primary;
+    color: $color-secondary;
+    background-color: $color-primary;
   }
-}
-
-.app {
-  text-align: center;
-  margin-top: 60px;
 }
 </style>
