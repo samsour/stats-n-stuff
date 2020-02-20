@@ -31,8 +31,12 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-    if (!store.getters.setupCompleted && to.path !== '/setup') next('/setup')
-    else next()
+    if (store.getters.missingSettings.length > 0 && to.path !== '/setup') {
+      store.commit("SAVE_CURRENT_ROUTE", from.path);
+      next('/setup')
+    } else {
+      next();
+    }
 })
 
 export default router;

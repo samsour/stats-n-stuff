@@ -1,7 +1,8 @@
 <template>
   <div class="settings">
-      <input class="settings__input" type="text" v-model="locationInput" />
-      <button @click="refresh" class="settings__button">Refresh</button>
+      Hello {{ name }} from {{ location }}
+      <!-- <input class="settings__input" type="text" v-model="locationInput" />
+      <button @click="refresh" class="settings__button">Refresh</button> -->
   </div>
 </template>
 
@@ -11,14 +12,10 @@ import { mapGetters } from 'vuex';
 export default {
     name: "settings",
     computed: {
-        locationInput: {
-            get() {
-                return this.$store.getters["location"];
-            },
-            set(locationName) {
-                this.$store.commit("SET_LOCATION", locationName);
-            }
-        }
+        ...mapGetters([
+            'name',
+            'location',
+        ])
     },
     methods: {
         refresh() {
