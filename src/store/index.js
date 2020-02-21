@@ -1,9 +1,20 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import VuexPersist from "vuex-persist";
+
 import Weather from "./modules/weather";
 import RMV from "./modules/rmv";
 
 Vue.use(Vuex);
+
+const vuexPersist = new VuexPersist({
+    key: "stats-n-stuff",
+    storage: localStorage,
+    reducer: state => ({
+      // only sync following properties/modules
+      settings: state.settings
+    })
+  });
 
 export default new Vuex.Store({
     modules: {
@@ -36,5 +47,6 @@ export default new Vuex.Store({
         SAVE_CURRENT_ROUTE(state, slug) {
             state.lastRouteBeforeSetup = slug;
         }
-    }
+    },
+    plugins: [vuexPersist.plugin]
 })
