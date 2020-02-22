@@ -23,7 +23,7 @@ export default {
     },
     actions: {
         fetchData({ commit, rootState }) {
-            fetch(`${api.proxyurl + api.baseUrl}location.name?accessId=${api.key}&input=${rootState.settings.location}&format=json`, {})
+            fetch(`${api.proxyurl + api.baseUrl}location.name?accessId=${api.key}&input=${rootState.settings.location.city}&format=json`, {})
                 .then(response => response.json())
                 .then(data => {
                     data.stopLocationOrCoordLocation ? commit("SET_LOCATION_DATA", data.stopLocationOrCoordLocation) : console.log("no location data");

@@ -1,45 +1,55 @@
 <template>
     <section class="setup-location">
         <h2 class="setup-location__headline">{{ text.question }}</h2>
-        <button class="setup-location__button setup-location__button--primary">{{ text.option1 }}</button>
-        <button class="setup-location__button setup-location__button--secondary">{{ text.option2 }}</button>
-    
-        <input v-if="manualMode" v-model="location" @keydown.enter="save" ref="input">
+        <button @click="detectLocation" class="setup-location__button setup-location__button--primary">{{ text.automaticDetection }}</button>
+        <button @click="activateManualMode" class="setup-location__button setup-location__button--secondary">{{ text.manualInput }}</button>
+        {{ location }}
+        <input v-if="manualMode" v-model="locationInput" @keydown.enter="save" ref="locationInput">
     </section>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
     name: "setup-location",
     computed: {
-        location: {
-            get() {
-                return this.$store.getters["location"];
-            },
-            set(locationName) {
-                this.$store.commit("SET_LOCATION", locationName);
-            }
-        }
+        ...mapGetters({
+            coordinates: "mapCoordinates",
+            location: "location",
+        })
     },
     data: () => ({
         text: {
             question: "Where are you right now?",
-            option1: "Automatically detect your location",
-            option2: "Manually set location"
+            automaticDetection: "Automatically detect your location",
+            manualInput: "Manually set location"
         },
-        manualMode: false,
-        usingCurrentLocation: false
+        locationInput: "",
+        usingCurrentLocation: false,
+        manualMode: false
     }),
     methods: {
+        detectLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    this.$store.dispatch("findLocationByCoordinates" , position.coords);
+                });
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        },
+        activateManualMode() {
+            console.log("manual mode");
+            this.manualMode = true;
+            this.$refs.locationInput.focus();
+        },
         save() {
             // save condition
             if(this.location.length > 0) {
                 this.$emit("save");
             }
         }
-    },
-    mounted() {
-        this.$refs.input.focus();
     }
 }
 </script>

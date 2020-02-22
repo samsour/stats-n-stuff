@@ -24,13 +24,13 @@ export default {
   },
   computed: {
     ...mapGetters({
-        locationInput: "location",
+        location: "location",
         currentStops: "RMV/currentStops",
         stationBoardData: "RMV/currentStationBoardData"
     })
   },
   mounted() {
-      if (this.locationInput) {
+      if (this.location) {
           this.$store.dispatch("RMV/fetchData");
       }
   },
