@@ -17,7 +17,10 @@ export default {
         ...mapGetters({
             coordinates: "mapCoordinates",
             location: "location",
-        })
+        }),
+        mapImageSrc() {
+            return "http://maps.googleapis.com/maps/api/staticmap?center=" + this.latitude + "," + this.longitude + "&zoom=13&size=300x300&sensor=false"
+        }
     },
     data: () => ({
         text: {
@@ -30,9 +33,9 @@ export default {
         manualMode: false
     }),
     methods: {
-        detectLocation() {
+        async detectLocation() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition((position) => {
+                await navigator.geolocation.getCurrentPosition((position) => {
                     this.$store.dispatch("findLocationByCoordinates" , position.coords);
                 });
             } else {

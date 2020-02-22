@@ -35,7 +35,7 @@ export default new Vuex.Store({
     getters: {
         location: state => state.settings.location,
         name: state => state.settings.name,
-        mapCoordinates: state => ({ lat: state.settings.coordinates.latitude, long: state.settings.coordinates.latitude }),
+        mapCoordinates: state => ({ lat: state.settings.coordinates.latitude, long: state.settings.coordinates.longitude }),
         missingSettings: state => {
             return Object.keys(state.settings).filter(setting => state.settings[setting].length === 0); 
         }
@@ -51,12 +51,21 @@ export default new Vuex.Store({
             state.lastRouteBeforeSetup = slug;
         },
         SET_COORDINATES(state, coords) {
-            state.settings.coordinates = coords;
+            state.settings.coordinates = {
+                accuracy: coords.accuracy,
+                altitude: coords.altitude,
+                altitudeAccuracy: coords.altitudeAccuracy,
+                heading: coords.heading,
+                latitude: coords.latitude,
+                longitude: coords.longitude,
+                speed: coords.speed
+            };
         }
     },
     actions: {
         findLocationByCoordinates({ commit }, coordinates) {
             commit("SET_COORDINATES", coordinates);
+
             fetch(`${OpenCageApi.baseUrl}?q=${coordinates.latitude}+${coordinates.longitude}&key=${OpenCageApi.key}&language=native`)
             .then(response => response.json())
             .then(data => {
@@ -92,7 +101,7 @@ export default new Vuex.Store({
                     city,
                     continent,
                     country,
-                    country_code,
+                    countryCode: country_code,
                     postcode,
                     state,
                     suburb
