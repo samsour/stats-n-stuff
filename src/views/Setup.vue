@@ -30,7 +30,6 @@ export default {
         activateNext() {
             if (this.missingSettings.length > 0) {
                 this.activeSection = this.missingSettings[0];
-                console.log("ACTIVATING", this.activeSection);
             } else {
                 const back = this.$store.state.lastRouteBeforeSetup;
                 if (back) this.$router.replace(back);
