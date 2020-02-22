@@ -1,5 +1,6 @@
 @mixin neumorphicContainer() {
     background: var(--color-secondary);
+    color: var(--color-primary);
     border-radius: 30px;
     border: 0;
     box-shadow:  8px 8px 16px var(--color-secondary-dark-10), -8px -8px 16px var(--color-secondary-light-10);
