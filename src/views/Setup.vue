@@ -21,7 +21,7 @@ export default {
         }
     },
     data: () => ({
-        activeSection: "name"
+        activeSection: ""
     }),
     created() {
         this.activateNext();
@@ -32,7 +32,11 @@ export default {
                 this.activeSection = this.missingSettings[0];
             } else {
                 const back = this.$store.state.lastRouteBeforeSetup;
-                if (back) this.$router.replace(back);
+                if (back) {
+                    this.$router.replace(back);
+                } else {
+                    this.$router.replace("/");
+                }
             }
         }
     }
