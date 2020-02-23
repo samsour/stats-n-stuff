@@ -14,7 +14,8 @@ const vuexPersist = new VuexPersist({
     storage: localStorage,
     reducer: state => ({
       // only sync following properties/modules
-      settings: state.settings
+      settings: state.settings,
+      weather: state.Weather
     })
   });
 
@@ -35,7 +36,7 @@ export default new Vuex.Store({
     getters: {
         location: state => state.settings.location,
         name: state => state.settings.name,
-        mapCoordinates: state => ({ lat: state.settings.coordinates.latitude, long: state.settings.coordinates.longitude }),
+        mapCoordinates: state => ({ latitude: state.settings.coordinates.latitude, longitude: state.settings.coordinates.longitude }),
         missingSettings: state => {
             return Object.keys(state.settings).filter(setting => state.settings[setting].length === 0); 
         }
