@@ -38,7 +38,7 @@ export default {
                     this.$store.dispatch("findLocationByCoordinates" , position.coords);
                 });
             } else {
-                x.innerHTML = "Geolocation is not supported by this browser.";
+                console.log("Geolocation is not supported by this browser.");
             }
         },
         activateManualMode() {
