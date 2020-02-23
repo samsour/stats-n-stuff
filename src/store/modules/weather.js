@@ -21,7 +21,7 @@ export default {
     },
     actions: {
         fetchData({ commit, rootState }) {
-            fetch(`${api.baseUrl}/current?access_key=${api.key}&query=${rootState.settings.location}`)
+            fetch(`${api.baseUrl}/current?access_key=${api.key}&query=${rootState.settings.coordinates.latitude},${rootState.settings.coordinates.longitude}`)
                 .then(response => response.json())
                 .then(data => {
                     data.location ? commit("SET_LOCATION_DATA", data.location) : console.log("no location");
