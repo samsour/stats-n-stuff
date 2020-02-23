@@ -1,8 +1,8 @@
 <template>
   <div class="settings">
-      Hello {{ name }} from {{ location }}
-      <!-- <input class="settings__input" type="text" v-model="locationInput" />
-      <button @click="refresh" class="settings__button">Refresh</button> -->
+        Hello {{ name }} from {{ location.city }}
+        <!-- <input class="settings__input" type="text" v-model="locationInput" />
+        <button @click="refresh" class="settings__button">Refresh</button> -->
   </div>
 </template>
 
@@ -14,14 +14,8 @@ export default {
     computed: {
         ...mapGetters([
             'name',
-            'location',
+            'location'
         ])
-    },
-    methods: {
-        refresh() {
-            this.$store.dispatch("Weather/fetchData");
-            this.$store.dispatch("RMV/fetchData");
-        }
     }
 };
 </script>

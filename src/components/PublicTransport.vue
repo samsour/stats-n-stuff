@@ -1,6 +1,6 @@
 <template>
   <div class="public-transport">
-    <ul v-if="stationBoardData">
+    <ul v-if="stationBoardData" class="public-transport__station-board">
       <li v-for="entry in stationBoardData" :key="entry.id">
         <station-board-entry v-bind="entry" />
       </li>
@@ -26,11 +26,11 @@ export default {
     ...mapGetters({
         location: "location",
         currentStops: "RMV/currentStops",
-        stationBoardData: "RMV/currentStationBoardData"
+        stationBoardData: "RMV/stationBoardData"
     })
   },
   mounted() {
-      if (this.location) {
+      if (this.location.city) {
           this.$store.dispatch("RMV/fetchData");
       }
   },
@@ -49,6 +49,10 @@ export default {
 
   ul {
     list-style-type: none;
+  }
+
+  &__station-board {
+    margin-bottom: 60px;
   }
 
   .button {
