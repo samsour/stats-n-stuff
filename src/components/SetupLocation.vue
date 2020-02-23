@@ -4,6 +4,8 @@
         <button @click="detectLocation" class="setup-location__button setup-location__button--primary">{{ text.automaticDetection }}</button>
         <button @click="activateManualMode" class="setup-location__button setup-location__button--secondary">{{ text.manualInput }}</button>
         {{ location }}
+        {{ coordinates }}
+        <iframe v-if="coordinates.latitude && coordinates.longitude" width="500" height="300" :src="`https://api.maptiler.com/maps/streets/?key=dFJA4iROflyaSZoNmGar#13/${coordinates.latitude}/${coordinates.longitude}`"></iframe>
         <input v-if="manualMode" v-model="locationInput" @keydown.enter="save" ref="locationInput">
     </section>
 </template>
@@ -17,10 +19,7 @@ export default {
         ...mapGetters({
             coordinates: "mapCoordinates",
             location: "location",
-        }),
-        mapImageSrc() {
-            return "http://maps.googleapis.com/maps/api/staticmap?center=" + this.latitude + "," + this.longitude + "&zoom=13&size=300x300&sensor=false"
-        }
+        })
     },
     data: () => ({
         text: {
