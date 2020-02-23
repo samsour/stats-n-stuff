@@ -1,15 +1,28 @@
 <template>
   <div class="public-transport">
-    <ul v-if="stationBoardData" class="public-transport__station-board">
+    <ul v-if="stationBoardData" class="public-transport__list">
       <li v-for="entry in stationBoardData" :key="entry.id">
         <station-board-entry v-bind="entry" />
       </li>
     </ul>
-    <ul>
-      <li v-for="stop in currentStops" :key="stop.id">
-        <button @click="getStationBoard(stop.extId)" class="button">{{ stop.name }}</button>
+
+    <div v-if="currentStops && currentStops.length > 0" class="public-transport__stations">
+      <h2 class="public-transport__headline">Stations:</h2>
+      <ul class="public-transport__list">
+        <li v-for="stop in currentStops" :key="stop.id">
+          <button @click="getStationBoard(stop.extId)" class="public-transport__button">{{ stop.name }}</button>
         </li>
-    </ul>
+      </ul>
+    </div>
+
+    <div v-if="currentCoords && currentCoords.length > 0" class="public-transport__places">
+      <h2 class="public-transport__headline">More places nearby:</h2>
+      <ul class="public-transport__list">
+        <li v-for="coordinate in currentCoords" :key="coordinate.id">
+          <button class="public-transport__button">{{ coordinate.name }}</button>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -26,6 +39,7 @@ export default {
     ...mapGetters({
         location: "location",
         currentStops: "RMV/currentStops",
+        currentCoords: "RMV/currentCoords",
         stationBoardData: "RMV/stationBoardData"
     })
   },
@@ -51,11 +65,11 @@ export default {
     list-style-type: none;
   }
 
-  &__station-board {
-    margin-bottom: 60px;
+  &__headline {
+    margin-bottom: 20px;
   }
 
-  .button {
+  &__button {
     @include neumorphicContainer;
   }
 }
